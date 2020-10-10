@@ -9,6 +9,8 @@ services:
         volumes: 
             - ./travel_map/app:/var/www/html
             - ./travel_map/apache_logs:/var/log/apache2
+        networks: 
+            - travel_map_net
     db:
         image: mariadb:10.5.6-focal
         restart: always
