@@ -15,11 +15,11 @@ def entry():
 
 @app.route("/edit")
 def edit():
-    pass
+    return render_template("edit.html")
 
 @app.route("/delete")
 def delete():
-    pass
+    return render_template("delete.html")
 
 if __name__ == '__main__':
     app.run()
