@@ -33,6 +33,6 @@ services:
             - "8088:8080"
         networks:
             - travel_map_net
-        networks: 
-            travel_map_net:
-                driver: bridge
+networks: 
+    travel_map_net:
+        driver: bridge
