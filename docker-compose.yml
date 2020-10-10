@@ -4,7 +4,8 @@ services:
         image: travel_map
         container_name: travel_map
         build: ./travel_map
-        ports: "8089:80"
+        ports:
+            -　"8089:80"
         volumes: 
             - ./travel_map/app:/var/www/html
             - ./travel_map/apache_logs:/var/log/apache2
