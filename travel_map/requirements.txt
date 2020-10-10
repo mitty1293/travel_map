@@ -1,2 +1,2 @@
-Flask
-mod_wsgi
+Flask==1.1.2
+mod_wsgi==4.7.1
