@@ -16,7 +16,7 @@ services:
         restart: always
         container_name: travel_map_db
         ports:
-            - "3366:3306"
+            - "3306:3306"
         networks:
             - travel_map_net
         volumes:
