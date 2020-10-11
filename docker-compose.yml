@@ -8,7 +8,6 @@ services:
             - "3366:3306"
         networks:
             - travel_map_net
-        # ボリュームマウント
         volumes:
             - ./db/data:/var/lib/mysql
             - ./db/initdb.d:/docker-entrypoint-initdb.d
