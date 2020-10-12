@@ -7,7 +7,8 @@ services:
         ports:
             - "8001:80"
         volumes: 
-            - ./travel_map/app:/var/www/html
+            - ./travel_map/app:/var/www/html/app
+            - ./travel_map/config:/var/www/html/config
             - ./travel_map/apache_logs:/var/log/apache2
         networks: 
             - travel_map_net

@@ -10,7 +10,7 @@ RUN apt-get update && \
     pip3 install --upgrade pip && \
     pip3 install -r /tmp/requirements.txt
 
-COPY config/flask.conf /etc/apache2/sites-available/
+COPY flask.conf /etc/apache2/sites-available/
 
 RUN a2ensite flask
 
