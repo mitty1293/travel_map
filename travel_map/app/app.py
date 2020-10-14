@@ -18,7 +18,7 @@ def entry_post():
     entry_post_value = request.form
     with open('/var/www/html/app/test.txt', mode="w") as f:
         for key,value in entry_post_value.items:
-            f.write(type(f))
+            f.write(type(entry_post_value))
             f.write(f'{key}:{value}\n')
     return render_template("entry.html")
 
