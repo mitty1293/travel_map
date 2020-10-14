@@ -16,10 +16,12 @@ def entry_get():
 @app.route("/entry", methods=['POST'])
 def entry_post():
     entry_post_value = request.form
+    # debug用
     with open('/var/www/html/app/test.txt', mode="w", encoding='shift_jis') as f:
         for key,value in entry_post_value.items():
             f.write(str(type(entry_post_value)))
             f.write(f'{key}:{value}\n')
+    # ここまで
     return render_template("entry.html")
 
 @app.route("/edit", methods=['GET'])
