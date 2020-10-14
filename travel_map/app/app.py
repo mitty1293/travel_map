@@ -17,7 +17,9 @@ def entry_get():
 def entry_post():
     entry_post_value = request.form
     with open('/var/www/html/app/test.txt', mode="w") as f:
-        f.write(entry_post_value)
+        for key,value in f:
+            f.write(type(f))
+            f.write(entry_post_value)
     return render_template("entry.html")
 
 @app.route("/edit", methods=['GET'])
