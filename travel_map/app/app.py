@@ -23,7 +23,7 @@ def entry_post():
             f.write(str(type(entry_post_value)))
             f.write(f'{key}:{value}\n')
     # ここまで
-    entry.entry(entry_post_value)
+    entry.entry(**entry_post_value)
     return render_template("entry.html")
 
 @app.route("/edit", methods=['GET'])
