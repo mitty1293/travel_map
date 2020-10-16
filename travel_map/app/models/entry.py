@@ -4,7 +4,7 @@
 import mysql.connector
 
 def entry(**entry_post_value):
-    connect = mysql.connector(host="travel_map_db", port="3306", user="user", password="password", database="travel_map_db")
+    connect = mysql.connector.connect(host="travel_map_db", port="3306", user="user", password="password", database="travel_map_db")
     cursor = connect.cursor()
 
     # debug用
