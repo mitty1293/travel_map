@@ -14,6 +14,8 @@ def entry(**entry_post_value):
             f.write(f'{key}:{value}\n')
     # ここまで
 
+    
+
 
     cursor.close()
     connect.commit()
