@@ -13,6 +13,7 @@ def entry(**entry_post_value):
         for key,value in entry_post_value.items():
             f.write(str(type(entry_post_value)))
             f.write(f'{key}:{value}\n')
+        f.write(list(entry_post_value.values()))
     # ここまで
 
     INSERT_SQL = 'INSERT INTO travel_map_tbl (latlng, date, destination, category, spot_name, note) VALUES (ST_GeomFromText("POINT(%s)"), %s, %s, %s, %s, %s)'
