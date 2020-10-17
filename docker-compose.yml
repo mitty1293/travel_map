@@ -12,8 +12,8 @@ services:
             - ./travel_map/apache_logs:/var/log/apache2
         networks: 
             - travel_map_net
-        # debug用
-        command: bash -c 'chmod -R 777 /var/www/html/app'
+        # debug用(dockerfileでapache起動させているのでここでは削除してもＯＫ)
+        command: bash -c 'chmod -R 777 /var/www/html/app; /usr/sbin/httpd -DFOREGROUND'
         # ここまで
     db:
         image: mariadb:10.5.6-focal
