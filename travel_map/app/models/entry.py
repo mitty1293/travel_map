@@ -8,14 +8,14 @@ def entry(**entry_post_value):
     cursor = connect.cursor()
 
     # debug用
+    entry_post_value['latlng'] = "139.762522 35.706752"
     with open('/var/www/html/app/test2.txt', mode="w", encoding='shift_jis') as f:
         for key,value in entry_post_value.items():
             f.write(str(type(entry_post_value)))
             f.write(f'{key}:{value}\n')
-    entry_post_value['latlng'] = "139.762522 35.706752"
     # ここまで
 
-    INSERT_SQL = 'INSERT INTO travel_map_tbl (latlng, date, destination, category, spot_name, note) VALUES (GeomFromText("POINT(%s)"), %s, %s, %s, %s, %s)'
+    INSERT_SQL = 'INSERT INTO travel_map_tbl (latlng, date, destination, category, spot_name, note) VALUES (ST_GeomFromText("POINT(%s)"), %s, %s, %s, %s, %s)'
     cursor.execute(INSERT_SQL, (list(entry_post_value.values())))
 
     cursor.close()
