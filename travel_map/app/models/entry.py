@@ -20,6 +20,8 @@ def entry(**entry_post_value):
     #cursor.execute(INSERT_SQL, (list(entry_post_value.values())))
     cursor.execute(INSERT_SQL, (entry_post_value["latlng"], entry_post_value["date"], entry_post_value["destination"], entry_post_value["category"], entry_post_value["spot_name"], entry_post_value["note"]))
 
+# latlangを緯度経度分けて2つのintつぃて作ってみる。entry.htmlで緯度経度2つにわけるところから
+
     cursor.close()
     connect.commit()
     connect.close()
