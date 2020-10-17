@@ -12,7 +12,7 @@ def entry(**entry_post_value):
         for key,value in entry_post_value.items():
             f.write(str(type(entry_post_value)))
             f.write(f'{key}:{value}\n')
-    entry_post_value[latlng] = GeomFromText('POINT(139.762522 35.706752)')
+    entry_post_value[latlng] = "GeomFromText('POINT(139.762522 35.706752)')"
     # ここまで
 
     INSERT_SQL = 'INSERT INTO travel_map_tbl (latlng, date, destination, category, spot_name, note) VALUES (%s, %s, %s, %s, %s, %s)'
