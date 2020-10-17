@@ -14,7 +14,7 @@ def entry(**entry_post_value):
             f.write(f'{key}:{value}\n')
     # ここまで
 
-    INSERT_SQL = 'INSERT INTO travel_map_tbl (latlang, date, destination, category, spot_name, note) VALUES (%s, %s, %s, %s, %s, %s)'
+    INSERT_SQL = 'INSERT INTO travel_map_tbl (latlng, date, destination, category, spot_name, note) VALUES (%s, %s, %s, %s, %s, %s)'
     cursor.execute(INSERT_SQL, (list(entry_post_value.values())))
 
     cursor.close()
