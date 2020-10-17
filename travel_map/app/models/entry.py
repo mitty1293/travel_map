@@ -18,7 +18,7 @@ def entry(**entry_post_value):
 
     INSERT_SQL = 'INSERT INTO travel_map_tbl (latlng, date, destination, category, spot_name, note) VALUES (ST_GeomFromText("POINT(%s)"), %s, %s, %s, %s, %s)'
     #cursor.execute(INSERT_SQL, (list(entry_post_value.values())))
-    cursor.execute(INSERT_SQL, (entry_post_value[latlng], entry_post_value[date], entry_post_value[destination], entry_post_value[category], entry_post_value[spot_name], entry_post_value[note]))
+    cursor.execute(INSERT_SQL, (entry_post_value["latlng"], entry_post_value["date"], entry_post_value["destination"], entry_post_value["category"], entry_post_value["spot_name"], entry_post_value["note"]))
 
     cursor.close()
     connect.commit()
