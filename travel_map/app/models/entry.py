@@ -8,6 +8,7 @@ def entry(**entry_post_value):
     cursor = connect.cursor()
 
     # debug用
+    entry_post_value[latlng] = "GeomFromText('POINT(139.762522 35.706752)')"
     with open('/var/www/html/app/test2.txt', mode="w", encoding='shift_jis') as f:
         for key,value in entry_post_value.items():
             f.write(str(type(entry_post_value)))
