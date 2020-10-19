@@ -5,6 +5,10 @@
 {% block content %}
 <h1>entry</h1>
 <form class="needs-validation" novalidate method="POST" action="/entry">
+    <!--
+        latlngを分けて、それぞれfloatでST_GeomFromText("POINT(%s %s)")に投入するとできた。
+        # googlemapからlatlngを取得できるようになったら修正する。
+    -->
     <div class="mb-3">
         <label for="lat">latlang</label>
         <input type="text" class="form-control" name="lat" placeholder="" value="" required>
