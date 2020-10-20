@@ -1,10 +1,11 @@
+<!--
 {% extends "layout.html" %}
 {% block head %}
 {{ super() }}
 {% endblock %}
 {% block content %}
 <h1>index</h1>
-<!-- google map -->
+
 <script>
     var MyLatLng = new google.maps.LatLng(35.6811673, 139.7670516);
     var Options = {
@@ -16,3 +17,27 @@
 </script>
 <div id="map"></div>
 {% endblock %}
+-->
+<!--google map実験用-->
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>travel map</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/static/default.css">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmW5xeN7EzTWXpzdzwL_EJnJRpYM8sApk&callback=initMap"></script>
+    </head>
+    <body>
+        <h1>index</h1>
+        <script>
+            var MyLatLng = new google.maps.LatLng(35.6811673, 139.7670516);
+            var Options = {
+                zoom: 15,
+                center: MyLatLng,
+                mapTypeId: 'roadmap'
+            };
+            var map = new google.maps.Map(document.getElementById('map'), Options);
+        </script>
+        <div id="map"></div>
+    </body>
+</html>
