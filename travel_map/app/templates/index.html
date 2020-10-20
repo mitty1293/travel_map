@@ -4,7 +4,6 @@
 {% endblock %}
 {% block content %}
 <h1>index</h1>
-<div id="map"></div>
 <script>
     var MyLatLng = new google.maps.LatLng(35.6811673, 139.7670516);
     var Options = {
@@ -14,4 +13,5 @@
     };
     var map = new google.maps.Map(document.getElementById('map'), Options);
 </script>
+<div id="map"></div>
 {% endblock %}
