@@ -11,7 +11,6 @@ function initMap(){
             position: e.latLng,
             map: map,
             title: e.latLng.toString(),
-            animation: google.maps.Animation.DROP
         });
     });
 }
