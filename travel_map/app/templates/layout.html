@@ -3,10 +3,11 @@
 	<head>
 		{% block head %}
 		<title>travel map</title>
-        <meta charset="UTF-8">
+		<meta charset="UTF-8">
+		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-		<!--<link rel="stylesheet" href="{{url_for('static', filename='css/default.css')}}">-->
-		<link rel="stylesheet" href="static/css/default.css">
+		<!-- Custum CSS -->
+		<link rel="stylesheet" href="{{url_for('static', filename='css/default.css')}}">
         {% endblock %}
     </head>
     <body>
