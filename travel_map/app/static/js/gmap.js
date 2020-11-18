@@ -12,5 +12,6 @@ function initMap(){
             map: map,
             title: e.latLng.toString(),
         });
+        map.panTo(e.latLng);
     });
 }
