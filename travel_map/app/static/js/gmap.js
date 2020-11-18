@@ -14,7 +14,10 @@ function initMap(){
 }
 
 function addClickMarker(lat_lng, map){
-    marker.setMap(null);
+    if(marker != null){
+        marker.setMap(null);
+    }
+    marker = null;
     // マーカー設置
     var marker = new google.maps.Marker({
         position: lat_lng,
