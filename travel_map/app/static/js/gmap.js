@@ -13,18 +13,14 @@ function initMap(){
     });
 }
 
-function create_marker(options){
-    var m =  new google.maps.Marker(options);
-    return m;
-}
-
 function addClickMarker(lat_lng, map){
+    // 既設のマーカーを削除
     if(marker != null){
         marker.setMap(null);
     }
     marker = null;
-    // マーカー設置
-    marker = create_marker({
+    // 新規にマーカーを設置
+    marker = new google.maps.Marker({
         position: lat_lng,
         map: map,
         title: lat_lng.toString(),
