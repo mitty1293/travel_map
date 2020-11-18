@@ -14,7 +14,7 @@ function initMap(){
 }
 
 function addClickMarker(lat_lng, map){
-    // 既設のマーカーを削除
+    // 既設のマーカーがある場合削除
     if(marker != null){
         marker.setMap(null);
     }
