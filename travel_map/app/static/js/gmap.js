@@ -6,12 +6,19 @@ function initMap(){
     };
     map = new google.maps.Map(document.getElementById("gmap"), opts);
 
+    // クリックイベント追加
     map.addListener('click', function(e){
-        var marker = new google.maps.Marker({
-            position: e.latLng,
-            map: map,
-            title: e.latLng.toString(),
-        });
-        map.panTo(e.latLng);
+        addClickMarker(e.latLng, map);
     });
+}
+
+function addClickMarker(lat_lng, map){
+    // マーカー設置
+    var marker = new google.maps.Marker({
+        position: lat_lng,
+        map: map,
+        title: lat_lng.toString(),
+    });
+    // 座標の中心をマーカーの位置へずらす
+    map.panTo(lat_lng);
 }
