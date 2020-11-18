@@ -13,13 +13,18 @@ function initMap(){
     });
 }
 
+function create_marker(options){
+    var m =  new google.maps.Marker(options);
+    return m;
+}
+
 function addClickMarker(lat_lng, map){
     if(marker != null){
         marker.setMap(null);
     }
     marker = null;
     // マーカー設置
-    var marker = new google.maps.Marker({
+    marker = create_marker({
         position: lat_lng,
         map: map,
         title: lat_lng.toString(),
