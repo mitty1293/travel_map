@@ -1,4 +1,5 @@
 var map;
+var marker = null;
 function initMap(){
     var opts = {
         zoom: 15,
@@ -13,7 +14,7 @@ function initMap(){
 }
 
 function addClickMarker(lat_lng, map){
-    setMapOnAll(null);
+    marker.setMap(null);
     // マーカー設置
     var marker = new google.maps.Marker({
         position: lat_lng,
