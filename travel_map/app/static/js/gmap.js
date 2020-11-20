@@ -13,11 +13,10 @@ function initMap(){
     // クリックイベント追加
     map.addListener('click', function(e){
         addClickMarker(e.latLng, map);
-        addClickInfo(e.latLng.toString(), map, marker)
     });
 }
 
-// クリック時にマーカーを設置する
+// mapクリック時にマーカーを設置する
 function addClickMarker(lat_lng, map){
     // 既設のマーカーがある場合削除
     if(marker != null){
@@ -28,16 +27,13 @@ function addClickMarker(lat_lng, map){
     marker = new google.maps.Marker({
         position: lat_lng,
         map: map,
-        title: lat_lng.toString(),
+        title: lat_lng.toString()
     });
-    // 座標の中心をマーカーの位置へずらす
-    map.panTo(lat_lng);
-}
-
-// クリック時にマーカーの位置へ情報ウインドウを表示する
-function addClickInfo(msg, map, marker){
+    // マーカーの位置へ情報ウインドウを表示
     infoWindow = new google.maps.InfoWindow({
-        content: msg + entry_link
+        content: lat_lng.toString() + entry_link
     });
     infoWindow.open(map, marker);
+    // 座標の中心をマーカーの位置へずらす
+    map.panTo(lat_lng);
 }
