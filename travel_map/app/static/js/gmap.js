@@ -10,6 +10,7 @@ function initMap(){
     // クリックイベント追加
     map.addListener('click', function(e){
         addClickMarker(e.latLng, map);
+        addClickInfo(e.latLng.toString(), map, marker)
     });
 }
 
@@ -27,4 +28,11 @@ function addClickMarker(lat_lng, map){
     });
     // 座標の中心をマーカーの位置へずらす
     map.panTo(lat_lng);
+}
+
+function addClickInfo(msg, map, marker){
+    var infoWindow = new google.maps.InfoWindow({
+        content: msg
+    });
+    infoWindow.open(map, marker);
 }
