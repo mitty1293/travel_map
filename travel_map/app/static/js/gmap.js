@@ -2,6 +2,7 @@ var map;
 var marker = null;
 var infoWindow = null;
 var entry_link = '<a href="/entry">登録</a>';
+
 function initMap(){
     var opts = {
         zoom: 15,
