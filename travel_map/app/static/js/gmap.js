@@ -1,5 +1,7 @@
 var map;
 var marker = null;
+var infoWindow = null;
+var entry_link = '<a href="/entry">登録</a>';
 function initMap(){
     var opts = {
         zoom: 15,
@@ -14,6 +16,7 @@ function initMap(){
     });
 }
 
+// クリック時にマーカーを設置する
 function addClickMarker(lat_lng, map){
     // 既設のマーカーがある場合削除
     if(marker != null){
@@ -30,9 +33,10 @@ function addClickMarker(lat_lng, map){
     map.panTo(lat_lng);
 }
 
+// クリック時にマーカーの位置へ情報ウインドウを表示する
 function addClickInfo(msg, map, marker){
-    var infoWindow = new google.maps.InfoWindow({
-        content: msg
+    infoWindow = new google.maps.InfoWindow({
+        content: msg + entry_link
     });
     infoWindow.open(map, marker);
 }
