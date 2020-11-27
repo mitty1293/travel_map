@@ -36,3 +36,5 @@ function addClickMarker(lat_lng, map){
     // 座標の中心をマーカーの位置へずらす
     map.panTo(lat_lng);
 }
+
+// app.pyにpostを送る処理を書く

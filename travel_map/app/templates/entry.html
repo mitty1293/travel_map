@@ -4,21 +4,21 @@
 {% endblock %}
 {% block content %}
 <h1>entry</h1>
-<form class="needs-validation" novalidate method="POST" action="/entry">
+<form class="needs-validation" novalidate method="POST" action="/entry_submit">
     <!--
         latlngを分けて、それぞれfloatでST_GeomFromText("POINT(%s %s)")に投入するとできた。
         # googlemapからlatlngを取得できるようになったら修正する。
     -->
     <div class="mb-3">
         <label for="lat">lat</label>
-        <input type="text" class="form-control" name="lat" placeholder="" value="" required>
+        <input type="hidden" class="form-control" name="lat" placeholder="" value={{lat}} required>
         <div class="invalid-feedback">
             latを入力してください。
         </div>
     </div>
     <div class="mb-3">
         <label for="lng">lang</label>
-        <input type="text" class="form-control" name="lng" placeholder="" value="" required>
+        <input type="hidden" class="form-control" name="lng" placeholder="" value={{lng}} required>
         <div class="invalid-feedback">
             langを入力してください。
         </div>
