@@ -19,7 +19,7 @@ def entry_page():
 def entry_submit():
     entry_submit_value = request.form
     # debug用
-    with open('/var/www/html/app/test.txt', mode="w", encoding='shift_jis') as f:
+    with open('/var/www/html/app/post_test.txt', mode="w", encoding='shift_jis') as f:
         for key,value in entry_submit_value.items():
             f.write(str(type(entry_submit_value)))
             f.write(f'{key}:{value}\n')
