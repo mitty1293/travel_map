@@ -24,6 +24,13 @@
         </div>
     </div>
     <div class="mb-3">
+        <label for="lat_lng">lang</label>
+        <input type="hidden" class="form-control" name="lat_lng" placeholder="" value={{lat_lng}} required>
+        <div class="invalid-feedback">
+            {{lat_lang}}を入力してください。
+        </div>
+    </div>
+    <div class="mb-3">
         <label for="date">日付</label>
         <input type="text" class="form-control" name="date" placeholder="" value="" required>
         <div class="invalid-feedback">

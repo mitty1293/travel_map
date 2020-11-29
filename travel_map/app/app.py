@@ -21,7 +21,7 @@ def entry_page():
         f.write(f'{lat_lng}\n')
     # ここまで
     # return render_template("entry.html",lat=35.706752,lng=139.762522)
-    return render_template("entry.html")
+    return render_template("entry.html", lat_lng=lat_lng)
 
 @app.route("/entry_submit", methods=['POST'])
 def entry_submit():
