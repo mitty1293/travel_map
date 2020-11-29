@@ -17,8 +17,9 @@ def entry_page():
     # その後、latlngを分ける必要がないのでわけない方向にしたい
     # debug用
     with open('/var/www/html/app/get_test.txt', mode="w", encoding='shift_jis') as f:
-        f.write(str(type(lat_lng)))
-        f.write(f'{lat_lng}\n')
+        for key,value in lat_lng.items():
+            f.write(str(type(lat_lng)))
+            f.write(f'{key}:{value}\n')
     # ここまで
     # return render_template("entry.html",lat=35.706752,lng=139.762522)
     return render_template("entry.html", lat_lng=lat_lng)
