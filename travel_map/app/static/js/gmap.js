@@ -30,18 +30,9 @@ function addClickMarker(lat_lng, map){
     });
     // マーカーの位置へ情報ウインドウを表示
     infoWindow = new google.maps.InfoWindow({
-        // content: `<p>${lat_lng.toString()}</p><p>${entry_link}</p>`
-        content: `<p>${lat_lng.toString()}</p><p><a href="javascript:postLatLng(${lat_lng});">登録</a></p>`
+        content: `<p>${lat_lng.toString()}</p><p><a href="/entry?lat_lng=${lat_lng}">登録</a></p>`
     });
     infoWindow.open(map, marker);
     // 座標の中心をマーカーの位置へずらす
     map.panTo(lat_lng);
-}
-
-// app.pyにpostする
-function postLatLng(lat_lng){
-    fetch("/entry", {
-        method: "POST",
-        body: lat_lng
-    });
 }

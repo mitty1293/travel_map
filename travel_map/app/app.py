@@ -10,11 +10,10 @@ app = Flask(__name__)
 def index_page():
     return render_template("index.html")
 
-@app.route("/entry", methods=['POST'])
+@app.route("/entry", methods=['GET'])
 def entry_page():
     # ここにjavascriptからのPOSTを受ける文を書く
     lat_lng = request.form
-    # もしくは、slackbotのwhereと同じように受け取りができるのでは？
     # その後、latlngを分ける必要がないのでわけない方向にしたい
     # return render_template("entry.html",lat=35.706752,lng=139.762522)
     return render_template("entry.html")
