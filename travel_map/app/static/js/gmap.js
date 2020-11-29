@@ -1,7 +1,7 @@
 var map;
 var marker = null;
 var infoWindow = null;
-var entry_link = '<a href="javascript:postLatLng(lat_lng);">登録</a>';
+var entry_link = '<a href="javascript:postLatLng(${lat_lng});">登録</a>';
 
 function initMap(){
     var opts = {
