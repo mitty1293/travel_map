@@ -1,7 +1,7 @@
 var map;
 var marker = null;
 var infoWindow = null;
-var entry_link = '<a href="/entry">登録</a>';
+var entry_link = '<a href="javascript:postLatLng(lat_lng);">登録</a>';
 
 function initMap(){
     var opts = {
@@ -37,4 +37,10 @@ function addClickMarker(lat_lng, map){
     map.panTo(lat_lng);
 }
 
-// app.pyにpostを送る処理を書く
+// app.pyにpostする
+function postLatLng(lat_lng){
+    fetch("/entry", {
+        method: "POST",
+        body: lat_lng
+    });
+}

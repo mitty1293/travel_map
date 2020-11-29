@@ -13,6 +13,9 @@ def index_page():
 @app.route("/entry", methods=['POST'])
 def entry_page():
     # ここにjavascriptからのPOSTを受ける文を書く
+    lat_lng = request.form
+    # もしくは、slackbotのwhereと同じように受け取りができるのでは？
+    # その後、latlngを分ける必要がないのでわけない方向にしたい
     return render_template("entry.html",lat=aaa,lng=bbb)
 
 @app.route("/entry_submit", methods=['POST'])
