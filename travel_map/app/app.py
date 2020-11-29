@@ -16,7 +16,8 @@ def entry_page():
     lat_lng = request.form
     # もしくは、slackbotのwhereと同じように受け取りができるのでは？
     # その後、latlngを分ける必要がないのでわけない方向にしたい
-    return render_template("entry.html",lat=35.706752,lng=139.762522)
+    # return render_template("entry.html",lat=35.706752,lng=139.762522)
+    return render_template("entry.html")
 
 @app.route("/entry_submit", methods=['POST'])
 def entry_submit():
