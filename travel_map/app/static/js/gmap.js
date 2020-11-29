@@ -30,7 +30,7 @@ function addClickMarker(lat_lng, map){
     });
     // マーカーの位置へ情報ウインドウを表示
     infoWindow = new google.maps.InfoWindow({
-        content: `<p>${lat_lng.toString()}</p><p><a href="/entry?lat_lng=${lat_lng}">登録</a></p>`
+        content: `<p>${lat_lng.toString()}</p><p><a href="/entry?lat_lng=${lat_lng.toString()}">登録</a></p>`
     });
     infoWindow.open(map, marker);
     // 座標の中心をマーカーの位置へずらす
