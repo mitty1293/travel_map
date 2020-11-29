@@ -10,8 +10,8 @@ def entry_submit(**entry_submit_value):
     # debug用
     # latlngを分けて、それぞれfloatでST_GeomFromText("POINT(%s %s)")に投入するとできた。
     # googlemapからlatlngを取得できるようになったら修正する。
-    entry_submit_value['lat'] = 35.706752
-    entry_submit_value['lng'] = 139.762522
+    # entry_submit_value['lat'] = 35.706752
+    # entry_submit_value['lng'] = 139.762522
     with open('/var/www/html/app/test2.txt', mode="w", encoding='shift_jis') as f:
         for key,value in entry_submit_value.items():
             f.write(str(type(entry_submit_value)))
