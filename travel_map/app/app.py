@@ -13,13 +13,12 @@ def index_page():
 @app.route("/entry", methods=['GET'])
 def entry_page():
     # ここにjavascriptからのPOSTを受ける文を書く
-    lat_lng = request.form
+    lat_lng = request.args.get('lat_lng')
     # その後、latlngを分ける必要がないのでわけない方向にしたい
     # debug用
     with open('/var/www/html/app/get_test.txt', mode="w", encoding='shift_jis') as f:
-        for key,value in lat_lng.items():
-            f.write(str(type(lat_lng)))
-            f.write(f'{key}:{value}\n')
+        f.write(str(type(lat_lng)))
+        f.write(f'{lat_lng}\n')
     # ここまで
     # return render_template("entry.html",lat=35.706752,lng=139.762522)
     return render_template("entry.html", lat_lng=lat_lng)
