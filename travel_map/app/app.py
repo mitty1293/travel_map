@@ -28,8 +28,10 @@ def entry_submit():
     submitted_data = request.form
     # debug用
     with open('/var/www/html/app/post_test.txt', mode="w", encoding='shift_jis') as f:
+        f.write(str(type(submitted_data)))
+        f.write('\n')
         for key,value in submitted_data.items():
-            f.write(str(type(submitted_data)))
+            f.write(str(type(value)))
             f.write(f'{key}:{value}\n')
     # ここまで
     register_db.register_db(**submitted_data)
