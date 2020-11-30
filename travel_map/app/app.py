@@ -35,7 +35,7 @@ def entry_submit():
             f.write(f'{key}:{value}\n')
     # ここまで
     register_db.register_db(**submitted_data)
-    return render_template("entry.html")
+    return render_template("index.html")
 
 @app.route("/edit", methods=['GET'])
 def edit():
