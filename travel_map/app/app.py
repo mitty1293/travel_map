@@ -12,8 +12,8 @@ def index_page():
 
 @app.route("/entry", methods=['GET'])
 def entry():
-    lat = request.args.get('lat')
-    lng = request.args.get('lng')
+    lat = request.args.get('lat', type=float)
+    lng = request.args.get('lng', type=float)
     # debug用
     with open('/var/www/html/app/get_test.txt', mode="w", encoding='shift_jis') as f:
         f.write(str(type(lat)))
