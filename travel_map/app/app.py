@@ -2,7 +2,7 @@
 # _*_ coding: utf-8 _*_
 
 from flask import Flask, render_template, request
-from models import entry_submit
+from models import register_db
 
 app = Flask(__name__)
 
@@ -11,7 +11,7 @@ def index_page():
     return render_template("index.html")
 
 @app.route("/entry", methods=['GET'])
-def entry_page():
+def entry():
     # ここにjavascriptからのPOSTを受ける文を書く
     lat = request.args.get('lat')
     lng = request.args.get('lng')
@@ -27,18 +27,18 @@ def entry_page():
 
 @app.route("/entry_submit", methods=['POST'])
 def entry_submit():
-    entry_submit_value = request.form
+    submitted_data = request.form
     # debug用
     with open('/var/www/html/app/post_test.txt', mode="w", encoding='shift_jis') as f:
-        for key,value in entry_submit_value.items():
-            f.write(str(type(entry_submit_value)))
+        for key,value in submitted_data.items():
+            f.write(str(type(submitted_data)))
             f.write(f'{key}:{value}\n')
     # ここまで
-    entry_submit.entry_submit(**entry_submit_value)
+    register_db.register_db(**submitted_data)
     return render_template("entry.html")
 
 @app.route("/edit", methods=['GET'])
-def edit_page():
+def edit():
     return render_template("edit.html")
 
 @app.route("/edit", methods=['POST'])
@@ -46,7 +46,7 @@ def edit_post():
     return render_template("edit.html")
 
 @app.route("/delete", methods=['GET'])
-def delete_page():
+def delete():
     return render_template("delete.html")
 
 @app.route("/delete", methods=['POST'])
