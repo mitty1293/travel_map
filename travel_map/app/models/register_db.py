@@ -13,8 +13,9 @@ def register_db(**data):
     data['lat'] = 35.713364036866
     data['lng'] = 139.80851431744384
     with open('/var/www/html/app/test2.txt', mode="w", encoding='shift_jis') as f:
+        f.write(str(type(data)))
+        f.write('\n')
         for key,value in data.items():
-            f.write(str(type(data)))
             f.write(str(type(value)))
             f.write(f'{key}:{value}\n')
         f.write(",".join(map(str,list(data.values()))))
