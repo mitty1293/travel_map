@@ -17,7 +17,6 @@ def register_db(**data):
             f.write(str(type(data)))
             f.write(str(type(value)))
             f.write(f'{key}:{value}\n')
-            f.write()
         f.write(",".join(map(str,list(data.values()))))
     # ここまで
 
