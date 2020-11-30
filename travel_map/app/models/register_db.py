@@ -21,7 +21,7 @@ def register_db(**data):
 
     INSERT_SQL = 'INSERT INTO travel_map_tbl (latlng, date, destination, category, spot_name, note) VALUES (ST_GeomFromText("POINT(%s %s)"), %s, %s, %s, %s, %s)'
     #cursor.execute(INSERT_SQL, (list(data.values())))
-    cursor.execute(INSERT_SQL, (data["lng"], data["lat"],data["date"], data["destination"], data["category"], data["spot_name"], data["note"]))
+    cursor.execute(INSERT_SQL, (data["lng"], data["lat"], data["date"], data["destination"], data["category"], data["spot_name"], data["note"]))
 
     cursor.close()
     connect.commit()

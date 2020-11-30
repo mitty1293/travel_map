@@ -12,7 +12,6 @@ def index_page():
 
 @app.route("/entry", methods=['GET'])
 def entry():
-    # ここにjavascriptからのPOSTを受ける文を書く
     lat = request.args.get('lat')
     lng = request.args.get('lng')
     # debug用
@@ -22,7 +21,6 @@ def entry():
         f.write(str(type(lng)))
         f.write(f'{lng}\n')
     # ここまで
-    # return render_template("entry.html",lat=35.706752,lng=139.762522)
     return render_template("entry.html", lat=lat, lng=lng)
 
 @app.route("/entry_submit", methods=['POST'])
