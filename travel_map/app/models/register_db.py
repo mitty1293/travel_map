@@ -7,6 +7,9 @@ def register_db(**data):
     connect = mysql.connector.connect(host="travel_map_db", port="3306", user="user", password="password", database="travel_map_db")
     cursor = connect.cursor()
 
+    data['lat'] = float(data['lat'])
+    data['lng'] = float(data['lng'])
+
     # debug用
     # latlngを分けて、それぞれfloatでST_GeomFromText("POINT(%s %s)")に投入するとできた。
     # googlemapからlatlngを取得できるようになったら修正する。
