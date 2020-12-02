@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # _*_ coding: utf-8 _*_
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 from models import register_db
 
 app = Flask(__name__)
@@ -35,7 +35,9 @@ def entry_submit():
             f.write(f'{key}:{value}\n')
     # ここまで
     register_db.register_db(**submitted_data)
-    return render_template("entry_success.html")
+    flash("登録処理が完了しました。")
+    return redirect(url_for('index'))
+    # return render_template("entry_success.html")
 
 @app.route("/edit", methods=['GET'])
 def edit():

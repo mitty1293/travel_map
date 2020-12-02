@@ -11,7 +11,9 @@
         {% endblock %}
     </head>
     <body>
-		{% block entry_success %}{% endblock %}
+		{% for message in get_flashed_messages() %}
+		<div class="alert alert-success">{{message}}</div>
+		{% endfor %}
 		<!-- navbar -->
 		<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
 			<a class="navbar-brand" href="/">travel map</a>
