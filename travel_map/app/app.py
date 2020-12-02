@@ -3,7 +3,7 @@
 
 from flask import Flask, render_template, request, flash
 from models import register_db
-import random
+import random, string
 
 app = Flask(__name__)
 app.secret_key = "".join([random.choice(string.ascii_letters + string.digits + '_' + '-' + '!' + '#' + '&') for i in range(12)])
