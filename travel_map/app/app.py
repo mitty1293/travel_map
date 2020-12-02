@@ -39,7 +39,6 @@ def entry_submit():
     register_db.register_db(**submitted_data)
     flash("登録処理が完了しました。")
     return redirect(url_for('index'))
-    # return render_template("entry_success.html")
 
 @app.route("/edit", methods=['GET'])
 def edit():
