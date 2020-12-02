@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # _*_ coding: utf-8 _*_
 
-from flask import Flask, render_template, request, flash, redirect
+from flask import Flask, render_template, request, flash, redirect, url_for
 from models import register_db
 import random, string
 
