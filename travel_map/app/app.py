@@ -9,7 +9,7 @@ app = Flask(__name__)
 app.secret_key = "".join([random.choice(string.ascii_letters + string.digits + '_' + '-' + '!' + '#' + '&') for i in range(12)])
 
 @app.route("/", methods=['GET'])
-def index_page():
+def index():
     return render_template("index.html")
 
 @app.route("/entry", methods=['GET'])
