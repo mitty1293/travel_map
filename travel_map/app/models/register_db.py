@@ -11,11 +11,7 @@ def register_db(**data):
     data['lng'] = float(data['lng'])
 
     # debug用
-    # latlngを分けて、それぞれfloatでST_GeomFromText("POINT(%s %s)")に投入するとできた。
-    # googlemapからlatlngを取得できるようになったら修正する。
-    # data['lat'] = 35.713364036866
-    # data['lng'] = 139.80851431744384
-    with open('/var/www/html/app/test2.txt', mode="w", encoding='shift_jis') as f:
+    with open('/var/www/html/app/register_db_test.txt', mode="w", encoding='shift_jis') as f:
         f.write(str(type(data)))
         f.write('\n')
         for key,value in data.items():
@@ -25,7 +21,6 @@ def register_db(**data):
     # ここまで
 
     INSERT_SQL = 'INSERT INTO travel_map_tbl (latlng, date, destination, category, spot_name, note) VALUES (ST_GeomFromText("POINT(%s %s)"), %s, %s, %s, %s, %s)'
-    #cursor.execute(INSERT_SQL, (list(data.values())))
     cursor.execute(INSERT_SQL, (data["lng"], data["lat"], data["date"], data["destination"], data["category"], data["spot_name"], data["note"]))
 
     cursor.close()
