@@ -6,21 +6,21 @@
 <h1>entry</h1>
 <form class="needs-validation" novalidate method="POST" action="/entry_submit">
     <div class="mb-3">
-        <input type="hidden" class="form-control" name="lat" placeholder="" value={{lat}} required>
+        <input type="hidden" class="form-control" name="lat" value={{lat}} required>
     </div>
     <div class="mb-3">
-        <input type="hidden" class="form-control" name="lng" placeholder="" value={{lng}} required>
+        <input type="hidden" class="form-control" name="lng" value={{lng}} required>
     </div>
     <div class="mb-3">
         <label for="date">日付</label>
-        <input type="date" class="form-control" name="date" placeholder="" value="" required>
+        <input type="date" class="form-control" name="date" required>
         <div class="invalid-feedback">
             日付を入力してください。
         </div>
     </div>
     <div class="mb-3">
         <label for="destination">旅行先</label>
-        <input type="text" class="form-control" name="destination" placeholder="" value="" required>
+        <input type="text" class="form-control" name="destination" required>
         <div class="invalid-feedback">
             旅行先を入力してください。
         </div>
@@ -39,14 +39,14 @@
     </div>
     <div class="mb-3">
         <label for="spot_name">場所の名前</label>
-        <input type="text" class="form-control" name="spot_name" placeholder="" value="" required>
+        <input type="text" class="form-control" name="spot_name" required>
         <div class="invalid-feedback">
             場所の名前を入力してください。
         </div>
     </div>
     <div class="mb-3">
         <label for="note">備考</label>
-        <input type="text" class="form-control" name="note" placeholder="" value="" required>
+        <input type="text" class="form-control" name="note" required>
         <div class="invalid-feedback">
             備考を入力してください。
         </div>
