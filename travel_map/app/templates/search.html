@@ -15,6 +15,19 @@
             <input type="date" class="form-control" name="date_to" required>
         </div>
     </div>
+    <div class="mb-3">
+        <label for="destination">旅行先</label>
+        <input type="text" class="form-control" name="destination" required>
+    </div>
+    <div class="mb-3">
+        <label for="category">分類</label>
+        <select class="custom-select d-block w-100" name="category" required>
+            <option value="">選択してください</option>
+            <option>自然</option>
+            <option>レストラン</option>
+            <option>施設</option>
+        </select>
+    </div>
     <button class="btn btn-primary btn-lg btn-block" type="submit">検索</button>
 </form>
 {% endblock %}
