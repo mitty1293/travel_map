@@ -1,5 +1,6 @@
 var map;
-var marker = null;
+var initMarker =null;
+var clickMarker = null;
 var infoWindow = null;
 var entry_link = '<a href="javascript:postLatLng(${lat_lng});">登録</a>';
 
@@ -15,15 +16,22 @@ function initMap(){
     });
 }
 
+// マーカーの初期表示用
+function showInitMarker(){
+    initMarker = new google.maps.Marker({
+        
+    });
+}
+
 // mapクリック時にマーカーと情報ウインドウを設置する
 function addClickMarker(lat_lng, map){
     // 既設のマーカーがある場合削除
-    if(marker != null){
-        marker.setMap(null);
+    if(clickMarker != null){
+        clickMarker.setMap(null);
     }
-    marker = null;
+    clickMarker = null;
     // 新規にマーカーを設置
-    marker = new google.maps.Marker({
+    clickMarker = new google.maps.Marker({
         position: lat_lng,
         map: map,
         title: lat_lng.toString()
@@ -32,7 +40,7 @@ function addClickMarker(lat_lng, map){
     infoWindow = new google.maps.InfoWindow({
         content: `<p>${lat_lng.toString()}</p><p><a href="/entry?lat=${lat_lng.lat()}&lng=${lat_lng.lng()}">登録</a></p>`
     });
-    infoWindow.open(map, marker);
+    infoWindow.open(map, clickMarker);
     // 座標の中心をマーカーの位置へずらす
     map.panTo(lat_lng);
 }

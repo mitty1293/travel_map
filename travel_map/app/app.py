@@ -40,21 +40,13 @@ def entry_submit():
     flash("登録処理が完了しました。")
     return redirect(url_for('index'))
 
-@app.route("/edit", methods=['GET'])
-def edit():
-    return render_template("edit.html")
+@app.route("/search", methods=['GET'])
+def search():
+    return render_template("search.html")
 
-@app.route("/edit", methods=['POST'])
-def edit_post():
-    return render_template("edit.html")
-
-@app.route("/delete", methods=['GET'])
-def delete():
-    return render_template("delete.html")
-
-@app.route("/delete", methods=['POST'])
-def delete_post():
-    return render_template("delete.html")
+@app.route("/search_submit", methods=['POST'])
+def search_submit():
+    return render_template("search.html")
 
 if __name__ == '__main__':
     app.run()
