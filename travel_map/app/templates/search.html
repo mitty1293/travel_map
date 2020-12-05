@@ -5,13 +5,15 @@
 {% block content %}
 <h1>serch</h1>
 <form class="needs-validation" novalidate method="POST" action="/search_submit">
-    <div class="col">
-        <label for="date_from">From</label>
-        <input type="date" class="form-control" name="date_from" required>
-    </div>
-    <div class="col">
-        <label for="date_to">To</label>
-        <input type="date" class="form-control" name="date_to" required>
+    <div class="form-row">
+        <div class="col">
+            <label for="date_from">From</label>
+            <input type="date" class="form-control" name="date_from" required>
+        </div>
+        <div class="col">
+            <label for="date_to">To</label>
+            <input type="date" class="form-control" name="date_to" required>
+        </div>
     </div>
     <button class="btn btn-primary btn-lg btn-block" type="submit">検索</button>
 </form>
