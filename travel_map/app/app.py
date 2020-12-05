@@ -27,16 +27,16 @@ def entry():
 
 @app.route("/entry_submit", methods=['POST'])
 def entry_submit():
-    submitted_data = request.form
+    entry_submit_data = request.form
     # debug用
     with open('/var/www/html/app/post_test.txt', mode="w", encoding='shift_jis') as f:
-        f.write(str(type(submitted_data)))
+        f.write(str(type(entry_submit_data)))
         f.write('\n')
-        for key,value in submitted_data.items():
+        for key,value in entry_submit_data.items():
             f.write(str(type(value)))
             f.write(f'{key}:{value}\n')
     # ここまで
-    register_db.register_db(**submitted_data)
+    register_db.register_db(**entry_submit_data)
     flash("登録処理が完了しました。")
     return redirect(url_for('index'))
 
@@ -46,6 +46,7 @@ def search():
 
 @app.route("/search_submit", methods=['POST'])
 def search_submit():
+    search_submit_data = request.form
     return render_template("search.html")
 
 if __name__ == '__main__':
