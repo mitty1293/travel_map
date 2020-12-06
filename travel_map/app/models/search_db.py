@@ -19,4 +19,10 @@ def search_db(**data):
 
     SEARCH_SQL = 'SELECT * FROM travel_map_tbl WHERE category=%s'
     cursor.execute(SEARCH_SQL, (data['category'], ))
-    return cursor.fetchall()
+    results = cursor.fetchall()
+    # debug用
+    with open('/var/www/html/app/search_db_test2.txt', mode="w", encoding='shift_jis') as f:
+        for result in results:
+            f.write(f'{result}\n')
+    # ここまで
+    return results
