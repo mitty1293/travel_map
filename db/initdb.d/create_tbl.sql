@@ -1,4 +1,3 @@
---SET CHARSET UTF8;
 CREATE TABLE `travel_map_db`.`travel_map_tbl`(
     `id` bigint(16) unsigned NOT NULL AUTO_INCREMENT,
     `latlng` geometry NOT NULL,
