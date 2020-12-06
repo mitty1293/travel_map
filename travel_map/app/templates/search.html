@@ -34,6 +34,7 @@
 <table class="table table-striped table-sm">
     <thead>
         <tr>
+            <th>ID</th>
             <th>日付</th>
             <th>旅行先</th>
             <th>分類</th>
@@ -44,11 +45,12 @@
     <tbody>
         {% for row in serch_results %}
         <tr>
-            <td>{{row.date}}</td>
-            <td>{{row.destination}}</td>
-            <td>{{row.category}}</td>
-            <td>{{row.spot_name}}</td>
-            <td>{{row.note}}</td>
+            <td>{{row[0]}}</td>
+            <td>{{row[2]}}</td>
+            <td>{{row[3]}}</td>
+            <td>{{row[4]}}</td>
+            <td>{{row[5]}}</td>
+            <td>{{row[6]}}</td>
         </tr>
         {% else %}
             <td>No entry exist</td>
