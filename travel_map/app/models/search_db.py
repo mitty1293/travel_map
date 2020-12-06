@@ -8,5 +8,5 @@ def search_db(**data):
     cursor = connect.cursor()
 
     SEARCH_SQL = 'SELECT * FROM travel_map_tbl WHERE category=%s'
-    cursor.execute(SEARCH_SQL, (data['category']))
+    cursor.execute(SEARCH_SQL, (data['category'], ))
     return cursor.fetchall()
