@@ -17,8 +17,8 @@ def search_db(**data):
         f.write(",".join(map(str,list(data.values()))))
     # ここまで
 
-    SEARCH_SQL = 'SELECT * FROM travel_map_tbl WHERE destination=%s and category=%s'
-    cursor.execute(SEARCH_SQL, (data['destination'], data['category']))
+    SEARCH_SQL = 'SELECT * FROM travel_map_tbl WHERE date between %s and %s and destination=%s and category=%s'
+    cursor.execute(SEARCH_SQL, (data['date_from'], data['date_to'], data['destination'], data['category']))
     results = cursor.fetchall()
     # debug用
     with open('/var/www/html/app/search_db_test2.txt', mode="w", encoding='shift_jis') as f:
