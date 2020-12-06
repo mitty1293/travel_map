@@ -22,7 +22,10 @@ def search_db(**data):
     results = cursor.fetchall()
     # debug用
     with open('/var/www/html/app/search_db_test2.txt', mode="w", encoding='shift_jis') as f:
+        f.write(str(type(results)))
+        f.write('\n')
         for result in results:
+            f.write(str(type(result)))
             f.write(f'{result}\n')
     # ここまで
     return results
