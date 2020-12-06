@@ -1,6 +1,6 @@
-USE travel_map_db;
-SET CHARACTER_SET_CLIENT = utf8;
-SET CHARACTER_SET_CONNECTION = utf8;
+-- USE travel_map_db;
+-- SET CHARACTER_SET_CLIENT = utf8;
+-- SET CHARACTER_SET_CONNECTION = utf8;
 INSERT INTO travel_map_tbl (latlng, date, destination, category, spot_name, note) VALUES (ST_GeomFromText("POINT(35.70994915351262 139.80104704754638)"), "2020-11-20", "東京", "自然", "地点_東京自然1", "備考_東京自然1");
 INSERT INTO travel_map_tbl (latlng, date, destination, category, spot_name, note) VALUES (ST_GeomFromText("POINT(35.76012838102881 139.69586735824032)"), "2005-07-17", "東京", "自然", "地点_東京自然2", "備考_東京自然2");
 INSERT INTO travel_map_tbl (latlng, date, destination, category, spot_name, note) VALUES (ST_GeomFromText("POINT(35.74898374653144 139.84659974453976)"), "2019-08-05", "東京", "レストラン", "地点_東京レストラン1", "備考_東京レストラン1");
