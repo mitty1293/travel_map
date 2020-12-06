@@ -7,4 +7,6 @@ def search_db(**data):
     connect = mysql.connector.connect(host="travel_map_db", port="3306", user="user", password="password", database="travel_map_db")
     cursor = connect.cursor()
 
-    SEARCH_SQL = 'SELECT'
+    SEARCH_SQL = 'SELECT * FROM travel_map_tbl WHERE category=%s'
+    cursor.execute(SEARCH_SQL, (data[category]))
+    return cursor.fetchall()

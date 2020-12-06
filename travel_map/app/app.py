@@ -2,7 +2,7 @@
 # _*_ coding: utf-8 _*_
 
 from flask import Flask, render_template, request, flash, redirect, url_for
-from models import register_db
+from models import register_db, search_db
 import random, string
 
 app = Flask(__name__)
@@ -47,7 +47,8 @@ def search():
 @app.route("/search_submit", methods=['POST'])
 def search_submit():
     search_submit_data = request.form
-    return render_template("search.html")
+    search_results = search_db.search_db(**search_submit_data)
+    return render_template("search.html", search_results=search_results)
 
 if __name__ == '__main__':
     app.run()
