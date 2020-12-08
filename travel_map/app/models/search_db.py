@@ -25,6 +25,7 @@ def search_db(**data):
     %s
     ELSE
     destination
+    END
     AND
     category = CASE
     WHEN %s <> '' THEN
