@@ -18,9 +18,23 @@ def search_db(**data):
     # ここまで
 
     #SEARCH_SQL = 'SELECT * FROM travel_map_tbl WHERE date between %s and %s and destination=%s and category=%s'
-    SEARCH_SQL = 'SELECT * FROM travel_map_tbl WHERE destination=%s and category=%s'
+    SEARCH_SQL = '''SELECT * FROM travel_map_tbl
+    WHERE
+    destination = CASE
+    WHEN %s <> '' THEN
+    %s
+    ELSE
+    destination
+    AND
+    category = CASE
+    WHEN %s <> '' THEN
+    %s
+    ELSE
+    category
+    END
+    '''
     #cursor.execute(SEARCH_SQL, (data['date_from'], data['date_to'], data['destination'], data['category']))
-    cursor.execute(SEARCH_SQL, (data['destination'], data['category']))
+    cursor.execute(SEARCH_SQL, (data['destination'], data['destination'], data['category'], data['category']))
     results = cursor.fetchall()
     # debug用
     with open('/var/www/html/app/search_db_test2.txt', mode="w", encoding='shift_jis') as f:
