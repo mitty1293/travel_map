@@ -42,7 +42,8 @@ def entry_submit():
 
 @app.route("/search", methods=['GET'])
 def search():
-    return render_template("search.html")
+    search_submit_data = {'date_from':'', 'date_to':'', 'destination':'', 'category':'選択してください'}
+    return render_template("search.html", search_submit_data=search_submit_data)
 
 @app.route("/search_submit", methods=['POST'])
 def search_submit():
@@ -56,7 +57,7 @@ def search_submit():
             f.write(str(type(result)))
             f.write(f'{result}\n')
     # ここまで
-    return render_template("search.html", search_results=search_results)
+    return render_template("search.html", search_submit_data=search_submit_data, search_results=search_results)
 
 if __name__ == '__main__':
     app.run()
