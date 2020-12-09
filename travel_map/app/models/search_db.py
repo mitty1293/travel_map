@@ -20,22 +20,35 @@ def search_db(**data):
     #SEARCH_SQL = 'SELECT * FROM travel_map_tbl WHERE date between %s and %s and destination=%s and category=%s'
     SEARCH_SQL = '''SELECT * FROM travel_map_tbl
     WHERE
+    date BETWEEN CASE
+        WHEN %s <> '' THEN
+            %s
+        ELSE
+            '1900-01-01'
+    END
+    AND CASE
+        WHEN %s <> '' THEN
+            %s
+        ELSE
+            '9999-12-31'
+    END
+    AND
     destination = CASE
-    WHEN %s <> '' THEN
-    %s
-    ELSE
-    destination
+        WHEN %s <> '' THEN
+            %s
+        ELSE
+            destination
     END
     AND
     category = CASE
-    WHEN %s <> '' THEN
-    %s
-    ELSE
-    category
+        WHEN %s <> '' THEN
+            %s
+        ELSE
+            category
     END
     '''
     #cursor.execute(SEARCH_SQL, (data['date_from'], data['date_to'], data['destination'], data['category']))
-    cursor.execute(SEARCH_SQL, (data['destination'], data['destination'], data['category'], data['category']))
+    cursor.execute(SEARCH_SQL, (data['date_from'], data['date_from'], data['date_to'], data['date_to'], data['destination'], data['destination'], data['category'], data['category']))
     results = cursor.fetchall()
     # debug用
     with open('/var/www/html/app/search_db_test2.txt', mode="w", encoding='shift_jis') as f:
