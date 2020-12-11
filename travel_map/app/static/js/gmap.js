@@ -2,7 +2,6 @@ var map;
 var initMarker =null;
 var clickMarker = null;
 var infoWindow = null;
-var entry_link = '<a href="javascript:postLatLng(${lat_lng});">登録</a>';
 
 function initMap(){
     var opts = {
