@@ -59,5 +59,9 @@ def search_submit():
     # ここまで
     return render_template("search.html", search_submit_data=search_submit_data, search_results=search_results)
 
+@app.route("/show/<int:id>", methods=['GET'])
+def show(id):
+    pass
+
 if __name__ == '__main__':
     app.run()
