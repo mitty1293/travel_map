@@ -61,7 +61,9 @@ def search_submit():
 
 @app.route("/show/<int:id>", methods=['GET'])
 def show(id):
-    pass
+    show_submit_data = {'id':id, 'date_from':'', 'date_to':'', 'destination':'', 'category':''}
+    show_results = search_db.search_db(**show_submit_data)
+    return render_template("show.html", show_results=show_results)
 
 if __name__ == '__main__':
     app.run()

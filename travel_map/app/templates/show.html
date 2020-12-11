@@ -4,4 +4,17 @@
 {% endblock %}
 {% block content %}
 <h1>show</h1>
+{% for row in show_results %}
+id
+{{row[0]}}
+date
+{{row[2]}}
+destination
+{{row[3]}}
+category
+{{row[4]}}
+spot_name
+{{row[5]}}
+note
+{{row[6]}}
 {% endblock %}
