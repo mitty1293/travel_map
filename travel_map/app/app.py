@@ -42,7 +42,7 @@ def entry_submit():
 
 @app.route("/search", methods=['GET'])
 def search():
-    search_submit_data = {'date_from':'', 'date_to':'', 'destination':'', 'category':'選択してください'}
+    search_submit_data = {'date_from':'', 'date_to':'', 'destination':'', 'category':''}
     return render_template("search.html", search_submit_data=search_submit_data)
 
 @app.route("/search_submit", methods=['POST'])

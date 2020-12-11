@@ -22,10 +22,10 @@
     <div class="mb-3">
         <label for="category">分類</label>
         <select class="custom-select d-block w-100" name="category">
-            <option disabled selected>選択してください</option>
-            <option>自然</option>
-            <option>レストラン</option>
-            <option>施設</option>
+            <option disabled {% if search_submit_data.category=='' %} selected {% endif %} >選択してください</option>
+            <option {% if search_submit_data.category=='自然' %} selected {% endif %} >自然</option>
+            <option {% if search_submit_data.category=='レストラン' %} selected {% endif %} >レストラン</option>
+            <option {% if search_submit_data.category=='施設' %} selected {% endif %} >施設</option>
         </select>
     </div>
     <button class="btn btn-primary btn-lg btn-block" type="submit">検索</button>
