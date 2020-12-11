@@ -17,7 +17,6 @@ def search_db(**data):
         f.write(",".join(map(str,list(data.values()))))
     # ここまで
 
-    #SEARCH_SQL = 'SELECT * FROM travel_map_tbl WHERE date between %s and %s and destination=%s and category=%s'
     SEARCH_SQL = '''SELECT * FROM travel_map_tbl
     WHERE
     date BETWEEN CASE
@@ -47,7 +46,6 @@ def search_db(**data):
             category
     END
     '''
-    #cursor.execute(SEARCH_SQL, (data['date_from'], data['date_to'], data['destination'], data['category']))
     cursor.execute(SEARCH_SQL, (data['date_from'], data['date_from'], data['date_to'], data['date_to'], data['destination'], data['destination'], data['category'], data['category']))
     results = cursor.fetchall()
     # debug用
