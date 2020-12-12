@@ -2,7 +2,7 @@ var map;
 var initMarker =null;
 var clickMarker = null;
 var infoWindow = null;
-var init_marker_results = {{init_marker_results|tojson}}
+var init_marker_results = {{init_marker_results|tojson}};
 
 function initMap(){
     var opts = {

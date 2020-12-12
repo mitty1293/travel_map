@@ -3,6 +3,11 @@
 {{ super() }}
 {% endblock %}
 {% block content %}
+<!--
+<script type="text/javascript">
+    let init_marker_results = {{init_marker_results|tojson}};
+</script>
+-->
 <h1>index</h1>
 <input type="button" id="getcurrentposition" onclick="getCurrentPosition()" value="Get Current Position">
 <!-- google map -->
