@@ -13,13 +13,19 @@ function initMap(){
     map.addListener('click', function(e){
         addMarker(e.latLng, map);
     });
+    // マーカーの初期表示
+    showInitMarker({{init_marker_results|tojson}}, map);
 }
 
 // マーカーの初期表示用
-function showInitMarker(){
-    initMarker = new google.maps.Marker({
-        
-    });
+function showInitMarker(init_marker_data, map){
+    for (var i=0; i<init_marker_data.length; i++){
+        var row = init_marker_data[i];
+        initMarker[i] = new google.maps.Marker({
+            position: row[1],
+            map: map
+        });
+    }
 }
 
 // mapクリック時にマーカーと情報ウインドウを設置する
@@ -46,6 +52,7 @@ function addMarker(lat_lng, map){
 
 // 現在地にマーカーと情報ウインドウを設置する
 function getCurrentPosition(){
+    //ブラウザが Geolocation に対応しているかを判定
     infoWindow = new google.maps.InfoWindow;
     if(!navigator.geolocation){
         //情報ウィンドウの位置をマップの中心位置に指定
@@ -55,13 +62,14 @@ function getCurrentPosition(){
         //情報ウィンドウを表示
         infoWindow.open(map);
     }
+    //  現在地情報の取得と情報ウインドウ設置
     navigator.geolocation.getCurrentPosition(function(position){
         var pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
         };
         addMarker(pos, map);
-    }, function(){
+    }, function(){ //位置情報の取得をユーザーがブロックした場合のコールバック
         infoWindow.setPosition(map.getCenter());
         infoWindow.setContent('Error: Geolocation が無効です。');
         infoWindow.open(map);
