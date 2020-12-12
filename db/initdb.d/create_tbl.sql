@@ -8,6 +8,5 @@ CREATE TABLE `travel_map_db`.`travel_map_tbl`(
     `spot_name` VARCHAR(40),
     `note` VARCHAR(40),
     `img_path` VARCHAR(128),
-    PRIMARY KEY (`id`),
-    SPATIAL KEY (`latlng`)
+    PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
