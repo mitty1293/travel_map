@@ -2,7 +2,7 @@
 # _*_ coding: utf-8 _*_
 
 from flask import Flask, render_template, request, flash, redirect, url_for
-from models import register_db, search_db, delete_db
+from models import register_db, search_db, delete_db, edit_db
 import random, string
 
 app = Flask(__name__)
@@ -66,6 +66,7 @@ def edit(id):
 @app.route("/edit_submit", methods=['POST'])
 def edit_submit():
     edit_submit_data = request.form
+    edit_db.edit_db(**edit_submit_data)
     flash("編集処理が完了しました。")
     return redirect(url_for('show', id=edit_submit_data['id']))
 
