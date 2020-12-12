@@ -68,6 +68,14 @@ def show(id):
 @app.route("/delete", methods=["POST"])
 def delete():
     delete_id = request.form
+    # debug用
+    with open('/var/www/html/app/delete_test.txt', mode="w", encoding='shift_jis') as f:
+        f.write(str(type(delete_id)))
+        f.write('\n')
+        for key,value in delete_id.items():
+            f.write(str(type(value)))
+            f.write(f'{key}:{value}\n')
+    # ここまで
     flash("削除処理が完了しました。")
     return redirect(url_for('index'))
 
