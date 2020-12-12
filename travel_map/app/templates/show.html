@@ -18,7 +18,7 @@
 <h2>note</h2>
 {{row[6]}}
 {% endfor %}
-<form action="{{url_for('delete, id=row[0]')}}" method="POST">
+<form action="/delete/{{row[0]}}" method="POST">
     <button type="submit" class="btn btn-danger">削除</button>
 </form>
 {% endblock %}
