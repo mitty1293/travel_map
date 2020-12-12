@@ -17,9 +17,25 @@
 {{row[5]}}
 <h2>note</h2>
 {{row[6]}}
-<form action="/delete" method="POST">
-    <input type="hidden" name="id" value="{{row[0]}}">
-    <button type="submit" class="btn btn-danger">削除</button>
-</form>
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletemodal">Delete</button>
+<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete Post?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <form action="/delete" method="POST">
+                    <input type="hidden" name="id" value="{{row[0]}}">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endfor %}
 {% endblock %}
