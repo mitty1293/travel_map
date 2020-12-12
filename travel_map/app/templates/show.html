@@ -17,8 +17,9 @@
 {{row[5]}}
 <h2>note</h2>
 {{row[6]}}
-{% endfor %}
-<form action="/delete/{{row[0]}}" method="POST">
+<form action="/delete" method="POST">
+    <input type="hidden" name="id" value="{{row[0]}}">
     <button type="submit" class="btn btn-danger">削除</button>
 </form>
+{% endfor %}
 {% endblock %}
