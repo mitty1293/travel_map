@@ -52,5 +52,10 @@ function getCurrentPosition(){
             lng: position.coords.longitude
         };
         addMarker(pos, map);
+    }, function(){
+        infoWindow = new google.maps.InfoWindow;
+        infoWindow.setPosition(map.getCenter());
+        infoWindow.setContent('Error: Geolocation が無効です。');
+        infoWindow.open(map);
     });
 }
