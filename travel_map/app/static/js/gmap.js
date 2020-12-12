@@ -2,7 +2,7 @@ var map;
 var initMarker =null;
 var clickMarker = null;
 var infoWindow = null;
-//var init_marker_results = {{init_marker_results|tojson}};
+var init_marker_results = {{init_marker_results|tojson}};
 
 function initMap(){
     var opts = {
@@ -15,15 +15,16 @@ function initMap(){
         addMarker(e.latLng, map);
     });
     // マーカーの初期表示
-    //showInitMarker(init_marker_results, map);
+    showInitMarker(init_marker_results, map);
 }
 
 // マーカーの初期表示用
 function showInitMarker(init_marker_data, map){
     for (var i=0; i<init_marker_data.length; i++){
         var row = init_marker_data[i];
+        var markerLatlng = new google.maps.LatLng({lat: row[0], lng: row[1]});
         initMarker[i] = new google.maps.Marker({
-            position: row[1],
+            position: markerLatlng,
             map: map
         });
     }
