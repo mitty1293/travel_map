@@ -2,7 +2,7 @@
 # _*_ coding: utf-8 _*_
 
 from flask import Flask, render_template, request, flash, redirect, url_for
-from models import register_db, search_db
+from models import register_db, search_db, delete_db
 import random, string
 
 app = Flask(__name__)
@@ -76,6 +76,7 @@ def delete():
             f.write(str(type(value)))
             f.write(f'{key}:{value}\n')
     # ここまで
+    delete_db.delete_db(**delete_id)
     flash("削除処理が完了しました。")
     return redirect(url_for('index'))
 
