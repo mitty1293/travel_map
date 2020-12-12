@@ -46,6 +46,15 @@ function addMarker(lat_lng, map){
 
 // 現在地にマーカーと情報ウインドウを設置する
 function getCurrentPosition(){
+    infoWindow = new google.maps.InfoWindow;
+    if(!navigator.geolocation){
+        //情報ウィンドウの位置をマップの中心位置に指定
+        infoWindow.setPosition(map.getCenter());
+        //情報ウィンドウのコンテンツを設定
+        infoWindow.setContent('Geolocation に対応していません。');
+        //情報ウィンドウを表示
+        infoWindow.open(map);
+    }
     navigator.geolocation.getCurrentPosition(function(position){
         var pos = {
             lat: position.coords.latitude,
@@ -53,7 +62,6 @@ function getCurrentPosition(){
         };
         addMarker(pos, map);
     }, function(){
-        infoWindow = new google.maps.InfoWindow;
         infoWindow.setPosition(map.getCenter());
         infoWindow.setContent('Error: Geolocation が無効です。');
         infoWindow.open(map);
