@@ -8,7 +8,7 @@ def edit_db(**data):
     cursor = connect.cursor()
 
     EDIT_SQL = 'UPDATE travel_map_tbl SET date=%s, destination=%s, category=%s, spot_name=%s, note=%s WHERE id=%s'
-    cursor.execute(EDIT_SQL, (data['date'], data['destination'], data['category'], data['spot_name'], data['note']))
+    cursor.execute(EDIT_SQL, (data['date'], data['destination'], data['category'], data['spot_name'], data['note'], data['id']))
 
     cursor.close()
     connect.commit()
