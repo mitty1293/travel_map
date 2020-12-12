@@ -63,4 +63,7 @@ def search_db(**data):
             f.write(str(type(result)))
             f.write(f'{result}\n')
     # ここまで
+    cursor.close()
+    connect.commit()
+    connect.close()
     return results
