@@ -3,7 +3,7 @@
 {{ super() }}
 {% endblock %}
 {% block content %}
-<h1>entry</h1>
+<h1>edit</h1>
 {% for row in edit_results %}
 <form class="needs-validation" novalidate method="POST" action="/edit_submit">
     <input type="hidden" name="id" value="{{row[0]}}">
