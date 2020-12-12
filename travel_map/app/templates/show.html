@@ -5,17 +5,17 @@
 {% block content %}
 <h1>show</h1>
 {% for row in show_results %}
-id
+<h2>id</h2>
 {{row[0]}}
-date
+<h2>date</h2>
 {{row[2]}}
-destination
+<h2>destination</h2>
 {{row[3]}}
-category
+<h2>category</h2>
 {{row[4]}}
-spot_name
+<h2>spot_name</h2>
 {{row[5]}}
-note
+<h2>note</h2>
 {{row[6]}}
 {% endfor %}
 {% endblock %}
