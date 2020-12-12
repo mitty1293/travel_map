@@ -57,5 +57,17 @@ def delete():
     flash("削除処理が完了しました。")
     return redirect(url_for('index'))
 
+@app.route("/edit/<int:id>", methods=['GET'])
+def edit(id):
+    edit_submit_data = {'id':id, 'date_from':'', 'date_to':'', 'destination':'', 'category':''}
+    edit_results = search_db.search_db(**edit_submit_data)
+    return render_template("edit.html", edit_results=edit_results)
+
+@app.route("/edit_submit", methods=['POST'])
+def edit_submit():
+    edit_submit_data = request.form
+    flash("編集処理が完了しました。")
+    return redirect(url_for('show', id=edit_submit_data['id']))
+
 if __name__ == '__main__':
     app.run()
