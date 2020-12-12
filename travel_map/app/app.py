@@ -65,7 +65,7 @@ def show(id):
     show_results = search_db.search_db(**show_submit_data)
     return render_template("show.html", show_results=show_results)
 
-@app.route("/delete/<int:id>", methods=["GET"])
+@app.route("/delete/<int:id>", methods=["POST"])
 def delete(id):
     pass
 
