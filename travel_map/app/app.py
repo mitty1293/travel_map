@@ -16,26 +16,11 @@ def index():
 def entry():
     lat = request.args.get('lat', type=float)
     lng = request.args.get('lng', type=float)
-    # debug用
-    with open('/var/www/html/app/get_test.txt', mode="w", encoding='shift_jis') as f:
-        f.write(str(type(lat)))
-        f.write(f'{lat}\n')
-        f.write(str(type(lng)))
-        f.write(f'{lng}\n')
-    # ここまで
     return render_template("entry.html", lat=lat, lng=lng)
 
 @app.route("/entry_submit", methods=['POST'])
 def entry_submit():
     entry_submit_data = request.form
-    # debug用
-    with open('/var/www/html/app/post_test.txt', mode="w", encoding='shift_jis') as f:
-        f.write(str(type(entry_submit_data)))
-        f.write('\n')
-        for key,value in entry_submit_data.items():
-            f.write(str(type(value)))
-            f.write(f'{key}:{value}\n')
-    # ここまで
     register_db.register_db(**entry_submit_data)
     flash("登録処理が完了しました。")
     return redirect(url_for('index'))
@@ -68,14 +53,6 @@ def show(id):
 @app.route("/delete", methods=["POST"])
 def delete():
     delete_id = request.form
-    # debug用
-    with open('/var/www/html/app/delete_test.txt', mode="w", encoding='shift_jis') as f:
-        f.write(str(type(delete_id)))
-        f.write('\n')
-        for key,value in delete_id.items():
-            f.write(str(type(value)))
-            f.write(f'{key}:{value}\n')
-    # ここまで
     delete_db.delete_db(**delete_id)
     flash("削除処理が完了しました。")
     return redirect(url_for('index'))
