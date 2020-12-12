@@ -9,28 +9,28 @@
     <input type="hidden" name="id" value="{{row[0]}}">
     <div class="mb-3">
         <label for="date">日付</label>
-        <input type="date" class="form-control" name="date" value={{row[2]}}>
+        <input type="date" class="form-control" name="date" value={{row[3]}}>
     </div>
     <div class="mb-3">
         <label for="destination">旅行先</label>
-        <input type="text" class="form-control" name="destination" value={{row[3]}}>
+        <input type="text" class="form-control" name="destination" value={{row[4]}}>
     </div>
     <div class="mb-3">
         <label for="category">分類</label>
         <select class="custom-select d-block w-100" name="category">
-            <option value="" {% if row[4]=='' %} selected {% endif %} >選択してください</option>
-            <option {% if row[4]=='自然' %} selected {% endif %} >自然</option>
-            <option {% if row[4]=='レストラン' %} selected {% endif %} >レストラン</option>
-            <option {% if row[4]=='施設' %} selected {% endif %} >施設</option>
+            <option value="" {% if row[5]=='' %} selected {% endif %} >選択してください</option>
+            <option {% if row[5]=='自然' %} selected {% endif %} >自然</option>
+            <option {% if row[5]=='レストラン' %} selected {% endif %} >レストラン</option>
+            <option {% if row[5]=='施設' %} selected {% endif %} >施設</option>
         </select>
     </div>
     <div class="mb-3">
         <label for="spot_name">場所の名前</label>
-        <input type="text" class="form-control" name="spot_name" value={{row[5]}}>
+        <input type="text" class="form-control" name="spot_name" value={{row[6]}}>
     </div>
     <div class="mb-3">
         <label for="note">備考</label>
-        <input type="text" class="form-control" name="note" value={{row[6]}}>
+        <input type="text" class="form-control" name="note" value={{row[7]}}>
     </div>
     <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
 </form>
