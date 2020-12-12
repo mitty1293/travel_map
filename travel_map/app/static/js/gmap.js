@@ -11,7 +11,7 @@ function initMap(){
     map = new google.maps.Map(document.getElementById("gmap"), opts);
     // クリックイベント追加
     map.addListener('click', function(e){
-        addClickMarker(e.latLng, map);
+        addMarker(e.latLng, map);
     });
 }
 
@@ -23,7 +23,7 @@ function showInitMarker(){
 }
 
 // mapクリック時にマーカーと情報ウインドウを設置する
-function addClickMarker(lat_lng, map){
+function addMarker(lat_lng, map){
     // 既設のマーカーがある場合削除
     if(clickMarker != null){
         clickMarker.setMap(null);
@@ -42,4 +42,15 @@ function addClickMarker(lat_lng, map){
     infoWindow.open(map, clickMarker);
     // 座標の中心をマーカーの位置へずらす
     map.panTo(lat_lng);
+}
+
+// 現在地にマーカーと情報ウインドウを設置する
+function getCurrentPosition(){
+    navigator.geolocation.getCurrentPosition(function(position){
+        var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+        };
+        addMarker(pos, map);
+    });
 }
