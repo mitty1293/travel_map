@@ -15,7 +15,7 @@ function initMap(){
         addMarker(e.latLng, map);
     });
     // マーカーの初期表示
-    showInitMarker(init_marker_results|tojson, map);
+    showInitMarker(init_marker_results, map);
 }
 
 // マーカーの初期表示用
