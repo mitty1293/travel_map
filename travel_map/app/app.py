@@ -65,5 +65,9 @@ def show(id):
     show_results = search_db.search_db(**show_submit_data)
     return render_template("show.html", show_results=show_results)
 
+@app.route("/delete/<int:id>", methods=["GET"])
+def delete(id):
+    pass
+
 if __name__ == '__main__':
     app.run()
