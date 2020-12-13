@@ -31,7 +31,7 @@ function showInitMarker(marker_data, map){
             icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'
         });
         initinfoWindow[i] = new google.maps.InfoWindow({
-            content: `<p>${lat_lng.toString()}</p><p><a href="/show/${row['id']}">詳細</a></p>`
+            content: `<p>${markerLatlng.toString()}</p><p><a href="/show/${row['id']}">詳細</a></p>`
         });
         initMarker[i].addListener('click', function(){
             initinfoWindow[i].open(map, initMarker[i]);
