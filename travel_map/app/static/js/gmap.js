@@ -2,7 +2,7 @@ var map;
 var initMarker =null;
 var clickMarker = null;
 var infoWindow = null;
-var init_marker_json = {{init_marker_results|tojson}};
+//var init_marker_json = {{init_marker_results|tojson}};
 
 function initMap(){
     var opts = {
@@ -15,7 +15,7 @@ function initMap(){
         addMarker(e.latLng, map);
     });
     // マーカーの初期表示
-    showInitMarker(init_marker_json, map);
+    //showInitMarker(init_marker_json, map);
 }
 
 // マーカーの初期表示用
