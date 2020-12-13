@@ -1,6 +1,7 @@
 var map;
 var initMarker = [];
 var clickMarker = null;
+var initinfoWindow = [];
 var clickinfoWindow = null;
 var currentinfoWindow = null;
 
@@ -28,6 +29,12 @@ function showInitMarker(marker_data, map){
             position: markerLatlng,
             map: map,
             icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'
+        });
+        initinfoWindow[i] = new google.maps.InfoWindow({
+            content: `<p>${lat_lng.toString()}</p><p><a href="/show/${row['id']}">詳細</a></p>`
+        });
+        initMarker[i].addListener('click', function(){
+            initinfoWindow[i].open(map, initMarker[i]);
         });
     }
 }
