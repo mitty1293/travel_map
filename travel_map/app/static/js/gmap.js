@@ -1,5 +1,5 @@
 var map;
-var initMarker =null;
+var initMarker = null;
 var clickMarker = null;
 var infoWindow = null;
 
