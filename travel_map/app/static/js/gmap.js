@@ -23,20 +23,13 @@ function initMap(){
 
 // マーカーの初期表示用
 function showInitMarker(marker_data, map){
-    console.log(marker_data.length)
     for (var i=0; i<marker_data.length; i++){
-        console.log(i)
-        console.log(marker_data[i])
         var row = marker_data[i];
-        console.log(row['lat'])
-        console.log(row['lng'])
         var markerLatlng = new google.maps.LatLng({lat: row['lat'], lng: row['lng']});
-        console.log(markerLatlng)
         initMarker[i] = new google.maps.Marker({
             position: markerLatlng,
             map: map
         });
-        console.log('OK')
     }
 }
 
