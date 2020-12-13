@@ -12,14 +12,6 @@ app.secret_key = "".join([random.choice(string.ascii_letters + string.digits + '
 def index():
     init_marker_data = {'id':'', 'date_from':'', 'date_to':'', 'destination':'', 'category':''}
     init_marker_results = search_db.search_db(**init_marker_data)
-    # debug用
-    with open('/var/www/html/app/index_test.txt', mode="w", encoding='shift_jis') as f:
-        f.write(str(type(init_marker_results)))
-        f.write('\n')
-        for result in init_marker_results:
-            f.write(str(type(result)))
-            f.write(f'{result}\n')
-    # ここまで
     return render_template("index.html", init_marker_results=init_marker_results)
 
 @app.route("/entry", methods=['GET'])
