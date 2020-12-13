@@ -13,14 +13,23 @@ function initMap(){
     map.addListener('click', function(e){
         addMarker(e.latLng, map);
     });
+
+    // デバッグ用
+    console.log(init_marker_json)
+
     // マーカーの初期表示
     showInitMarker(init_marker_json, map);
 }
 
 // マーカーの初期表示用
 function showInitMarker(marker_data, map){
+    console.log(marker_data.length)
     for (var i=0; i<marker_data.length; i++){
+        console.log(i)
+        console.log(marker_data[i])
         var row = marker_data[i];
+        console.log(row['lat'])
+        console.log(row['lng'])
         var markerLatlng = new google.maps.LatLng({lat: row['lat'], lng: row['lng']});
         initMarker[i] = new google.maps.Marker({
             position: markerLatlng,
