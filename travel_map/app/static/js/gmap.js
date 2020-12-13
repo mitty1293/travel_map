@@ -27,6 +27,9 @@ function showInitMarker(marker_data, map){
         initMarker[i] = new google.maps.Marker({
             position: markerLatlng,
             map: map
+            icon: {
+                url: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'
+            }
         });
     }
 }
