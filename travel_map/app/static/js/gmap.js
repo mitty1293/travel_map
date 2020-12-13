@@ -2,7 +2,7 @@ var map;
 var initMarker =null;
 var clickMarker = null;
 var infoWindow = null;
-//var init_marker_json = {{init_marker|tojson}};
+//var init_marker_json = {{init_marker_results|tojson}};
 
 function initMap(){
     var opts = {
@@ -19,9 +19,9 @@ function initMap(){
 }
 
 // マーカーの初期表示用
-function showInitMarker(init_marker_data, map){
-    for (var i=0; i<init_marker_data.length; i++){
-        var row = init_marker_data[i];
+function showInitMarker(marker_data, map){
+    for (var i=0; i<marker_data.length; i++){
+        var row = marker_data[i];
         var markerLatlng = new google.maps.LatLng({lat: row[0], lng: row[1]});
         initMarker[i] = new google.maps.Marker({
             position: markerLatlng,
