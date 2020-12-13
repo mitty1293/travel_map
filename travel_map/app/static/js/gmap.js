@@ -1,5 +1,5 @@
 var map;
-var initMarker = null;
+var initMarker = [];
 var clickMarker = null;
 var infoWindow = null;
 
@@ -32,7 +32,7 @@ function showInitMarker(marker_data, map){
         console.log(row['lng'])
         var markerLatlng = new google.maps.LatLng({lat: row['lat'], lng: row['lng']});
         console.log(markerLatlng)
-        initMarker = new google.maps.Marker({
+        initMarker[i] = new google.maps.Marker({
             position: markerLatlng,
             map: map
         });
@@ -48,7 +48,6 @@ function addMarker(lat_lng, map){
     }
     clickMarker = null;
     // 新規にマーカーを設置
-    console.log(lat_lng)
     clickMarker = new google.maps.Marker({
         position: lat_lng,
         map: map,
