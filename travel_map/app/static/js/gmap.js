@@ -21,7 +21,7 @@ function initMap(){
 function showInitMarker(marker_data, map){
     for (var i=0; i<marker_data.length; i++){
         var row = marker_data[i];
-        var markerLatlng = new google.maps.LatLng({lat: row[0], lng: row[1]});
+        var markerLatlng = new google.maps.LatLng({lat: row['lat'], lng: row['lng']});
         initMarker[i] = new google.maps.Marker({
             position: markerLatlng,
             map: map
