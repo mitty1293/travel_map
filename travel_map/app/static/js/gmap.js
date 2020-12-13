@@ -32,7 +32,7 @@ function showInitMarker(marker_data, map){
         console.log(row['lng'])
         var markerLatlng = new google.maps.LatLng({lat: row['lat'], lng: row['lng']});
         console.log(markerLatlng)
-        initMarker[i] = new google.maps.Marker({
+        initMarker = new google.maps.Marker({
             position: markerLatlng,
             map: map
         });
