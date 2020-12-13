@@ -36,6 +36,7 @@ function showInitMarker(marker_data, map){
             position: markerLatlng,
             map: map
         });
+        console.log('OK')
     }
 }
 
