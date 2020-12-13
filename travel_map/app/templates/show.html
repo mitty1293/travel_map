@@ -6,20 +6,20 @@
 <h1>show</h1>
 {% for row in show_results %}
 <h2>id</h2>
-{{row[0]}}
+{{row['id']}}
 <h2>date</h2>
-{{row[3]}}
+{{row['date']}}
 <h2>destination</h2>
-{{row[4]}}
+{{row['destination']}}
 <h2>category</h2>
-{{row[5]}}
+{{row['category']}}
 <h2>spot_name</h2>
-{{row[6]}}
+{{row['spot_name']}}
 <h2>note</h2>
-{{row[7]}}
+{{row['note']}}
 <!-- edit,delete button -->
 <div>
-    <a class="btn btn-secondary" href="/edit/{{row[0]}}">Update</a>
+    <a class="btn btn-secondary" href="/edit/{{row['id']}}">Update</a>
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deletemodal">Delete</button>
 </div>
 <!-- modal -->
@@ -35,7 +35,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <form action="/delete" method="POST">
-                    <input type="hidden" name="id" value="{{row[0]}}">
+                    <input type="hidden" name="id" value="{{row['id']}}">
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </div>
