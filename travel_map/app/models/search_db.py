@@ -5,7 +5,7 @@ import mysql.connector
 
 def search_db(**data):
     connect = mysql.connector.connect(host="travel_map_db", port="3306", user="user", password="password", database="travel_map_db")
-    cursor = connect.cursor()
+    cursor = connect.cursor(dictionary=True)
 
     # debug用
     with open('/var/www/html/app/search_db_test.txt', mode="w", encoding='shift_jis') as f:
