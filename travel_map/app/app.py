@@ -11,8 +11,8 @@ app.secret_key = "".join([random.choice(string.ascii_letters + string.digits + '
 @app.route("/", methods=['GET'])
 def index():
     init_marker_data = {'id':'', 'date_from':'', 'date_to':'', 'destination':'', 'category':''}
-    init_marker_results = search_db.search_db(**init_marker_data)
-    return render_template("index.html", init_marker_results=init_marker_results)
+    init_marker = search_db.search_db(**init_marker_data)
+    return render_template("index.html", init_marker=init_marker)
 
 @app.route("/entry", methods=['GET'])
 def entry():
