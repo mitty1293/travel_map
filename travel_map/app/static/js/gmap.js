@@ -26,7 +26,7 @@ function showInitMarker(marker_data, map){
         var markerLatlng = new google.maps.LatLng({lat: row['lat'], lng: row['lng']});
         initMarker[i] = new google.maps.Marker({
             position: markerLatlng,
-            map: map
+            map: map,
             icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'
         });
     }
