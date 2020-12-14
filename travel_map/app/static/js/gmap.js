@@ -16,7 +16,7 @@ function initMap(){
     map.addListener('click', function(e){
         geocoder.geocode({location: e.latLng}, function(results, status){
             addMarker(e.latLng, results[0].formatted_address, map);
-        }
+        });
     });
 
     // マーカーの初期表示
