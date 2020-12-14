@@ -46,6 +46,11 @@ def search_submit():
     # ここまで
     return render_template("search.html", search_submit_data=search_submit_data, search_results=search_results)
 
+@app.route("/search_address", methods=['GET'])
+def search_address():
+    search_address_submit_data = {'address':''}
+    return render_template("search_address.html", search_address_submit_data=search_address_submit_data)
+
 @app.route("/show/<int:id>", methods=['GET'])
 def show(id):
     show_submit_data = {'id':id, 'date_from':'', 'date_to':'', 'destination':'', 'category':''}

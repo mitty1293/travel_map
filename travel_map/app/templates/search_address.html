@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+{% block content %}
+<h1>serch</h1>
+<form class="needs-validation" novalidate method="POST" action="/search_address_submit">
+    <div class="mb-3">
+        <label for="address">場所の名前</label>
+        <input type="text" class="form-control" name="address" value={{search_address_submit_data.address}}>
+    </div>
+    <button class="btn btn-primary btn-lg btn-block" type="submit">検索</button>
+</form>
+<h1>Search results</h1>
+<table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th>登録</th>
+            <th>場所の名前</th>
+            <th>住所</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in search_address_results %}
+        <tr>
+            <td><a class="btn btn-primary" href="/entry?lat=${lat}&lng=${lat}" role="button">登録</a></td>
+            <td>{{row['spot_name']}}</td>
+            <td>{{row['address']}}</td>
+        </tr>
+        {% else %}
+            <td>No entry exist</td>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
