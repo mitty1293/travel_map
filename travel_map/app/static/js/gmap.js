@@ -30,19 +30,19 @@ function showInitMarker(marker_data, map){
             map: map,
             icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'
         });
-        console.log("row['id'] : %s", row['id']);
-        console.log("typeof(row['id']) : %s", typeof(row['id']));
-        var toString = Object.prototype.toString;
-        console.log("toString.call(row['id']) : %s", toString.call(row['id']));
         initinfoWindow[i] = new google.maps.InfoWindow({
             content: `<p>${markerLatlng.toString()}</p><p><a href="/show/${row['id']}">詳細</a></p>`
         });
-        console.log(`/show/${row['id']}`);
-        initMarker[i].addListener('click', function(){
-            console.log(initinfoWindow[i]);
-            initinfoWindow[i].open(map, initMarker[i]);
-        });
+        showInitInfoWindow(i);
     }
+}
+
+// 初期表示マーカークリック時に情報ウインドウを表示
+// クリックイベントはイベント追加時とクリック時に変数iの値が変わってしまうため別関数とする
+function showInitInfoWindow(i){
+    initMarker[i].addListener('click', function(){
+        initinfoWindow[i].open(map, initMarker[i]);
+    });
 }
 
 // mapクリック時にマーカーと情報ウインドウを設置する
