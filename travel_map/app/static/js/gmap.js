@@ -30,10 +30,10 @@ function showInitMarker(marker_data, map){
             map: map,
             icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'
         });
-        console.log("row['id'] : ${row['id']}");
-        console.log("typeof(row['id']) : ${typeof(row['id'])}")
+        console.log("row['id'] : %s", row['id']);
+        console.log("typeof(row['id']) : %s", typeof(row['id']))
         var toString = Object.prototype.toString;
-        console.log("toString.call(row['id']) : ${toString.call(row['id'])}")
+        console.log("toString.call(row['id']) : %s", toString.call(row['id']))
         initinfoWindow[i] = new google.maps.InfoWindow({
             content: `<p>${markerLatlng.toString()}</p><p><a href="/show/${row['id']}">詳細</a></p>`
         });
