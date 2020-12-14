@@ -60,8 +60,6 @@ function addMarker(lat_lng, address, map){
         position: lat_lng,
         map: map
     });
-    // 住所から'日本'の表示を消去
-    address = address.replace(/^日本, /, '');
     // マーカーの位置へ情報ウインドウを表示
     clickinfoWindow = new google.maps.InfoWindow({
         content: `<p>${address}</p><p><a href="/entry?lat=${lat_lng.lat()}&lng=${lat_lng.lng()}">この場所を登録</a></p>`
