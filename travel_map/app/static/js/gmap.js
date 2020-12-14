@@ -31,7 +31,7 @@ function showInitMarker(marker_data, map){
             icon: 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'
         });
         initinfoWindow[i] = new google.maps.InfoWindow({
-            content: `<p>${markerLatlng.toString()}</p><p><a href="/show/${row['id']}">詳細</a></p>`
+            content: `<p>${row['spot_name']}</p><p><a href="/show/${row['id']}">詳細を確認</a></p>`
         });
         showInitInfoWindow(i);
     }
@@ -55,12 +55,11 @@ function addMarker(lat_lng, map){
     // 新規にマーカーを設置
     clickMarker = new google.maps.Marker({
         position: lat_lng,
-        map: map,
-        title: lat_lng.toString()
+        map: map
     });
     // マーカーの位置へ情報ウインドウを表示
     clickinfoWindow = new google.maps.InfoWindow({
-        content: `<p>${lat_lng.toString()}</p><p><a href="/entry?lat=${lat_lng.lat()}&lng=${lat_lng.lng()}">登録</a></p>`
+        content: `<p><a href="/entry?lat=${lat_lng.lat()}&lng=${lat_lng.lng()}">この場所を登録</a></p>`
     });
     clickinfoWindow.open(map, clickMarker);
     // 座標の中心をマーカーの位置へずらす
