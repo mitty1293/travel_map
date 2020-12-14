@@ -11,9 +11,12 @@ function initMap(){
         center: new google.maps.LatLng(35.709984,139.810703)
     };
     map = new google.maps.Map(document.getElementById("gmap"), opts);
+    var geocoder = new google.maps.Geocoder();
     // クリックイベント追加
     map.addListener('click', function(e){
-        addMarker(e.latLng, map);
+        geocoder.geocode({location: e.latLng}, function(results, status){
+            addMarker(e.latLng, results[0].formatted_address, map);
+        }
     });
 
     // マーカーの初期表示
@@ -46,7 +49,7 @@ function showInitInfoWindow(i){
 }
 
 // mapクリック時にマーカーと情報ウインドウを設置する
-function addMarker(lat_lng, map){
+function addMarker(lat_lng, address, map){
     // 既設のマーカーがある場合削除
     if(clickMarker != null){
         clickMarker.setMap(null);
@@ -59,7 +62,7 @@ function addMarker(lat_lng, map){
     });
     // マーカーの位置へ情報ウインドウを表示
     clickinfoWindow = new google.maps.InfoWindow({
-        content: `<p><a href="/entry?lat=${lat_lng.lat()}&lng=${lat_lng.lng()}">この場所を登録</a></p>`
+        content: `<p>${address}</p><p><a href="/entry?lat=${lat_lng.lat()}&lng=${lat_lng.lng()}">この場所を登録</a></p>`
     });
     clickinfoWindow.open(map, clickMarker);
     // 座標の中心をマーカーの位置へずらす
