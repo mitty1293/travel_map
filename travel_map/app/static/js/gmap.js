@@ -94,3 +94,9 @@ function getCurrentPosition(){
         currentinfoWindow.open(map);
     });
 }
+
+// 住所検索用
+function searchAddress(){
+    var query = document.id_search_address_form.id_address.value;
+    console.log()query;
+}
