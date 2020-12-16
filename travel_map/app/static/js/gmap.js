@@ -97,6 +97,6 @@ function getCurrentPosition(){
 
 // 住所検索用
 function searchAddress(){
-    var query = document.id_search_address_form.id_address.value;
+    var query = document.forms.id_search_address_form.id_address.value;
     console.log(query);
 }
