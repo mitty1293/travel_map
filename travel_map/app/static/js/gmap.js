@@ -109,9 +109,13 @@ function searchAddress(){
     service.textSearch(request, callback);
     // 検索結果の処理
     function callback(results, status){
-        for (var i=0; i<results.length; i++){
-            console.log(results[i].name);
-            console.log(results[i].geometry.location);
+        if (status === google.maps.places.PlacesServiceStatus.OK){
+            for (var i=0; i<results.length; i++){
+                console.log(results[i].name);
+                console.log(results[i].geometry.location);
+            }
+        }else{
+            console.log('入ってない');
         }
     }
 }
