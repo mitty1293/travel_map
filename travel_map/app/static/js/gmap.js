@@ -18,7 +18,6 @@ function initMap(){
             addMarker(e.latLng, results[0].formatted_address, map);
         });
     });
-
     // マーカーの初期表示
     showInitMarker(init_marker_json, map);
 }
@@ -39,7 +38,6 @@ function showInitMarker(marker_data, map){
         showInitInfoWindow(i);
     }
 }
-
 // 初期表示マーカークリック時に情報ウインドウを表示
 // クリックイベントはイベント追加時とクリック時に変数iの値が変わってしまうため別関数とする
 function showInitInfoWindow(i){
