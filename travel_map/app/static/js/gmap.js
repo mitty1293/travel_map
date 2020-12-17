@@ -121,6 +121,6 @@ function callback(results, status){
             console.log(results[i].geometry.location);
         }
     }else{
-        console.log('入ってない');
+        console.log('6');
     }
 }
