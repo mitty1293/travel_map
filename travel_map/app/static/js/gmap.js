@@ -110,17 +110,17 @@ function searchAddress(){
     console.log('2');
     service.textSearch(request, callback);
     console.log('3');
-    // 検索結果の処理
-    function callback(results, status){
-        console.log('4');
-        if (status === google.maps.places.PlacesServiceStatus.OK){
-            console.log('5');
-            for (var i=0; i<results.length; i++){
-                console.log(results[i].name);
-                console.log(results[i].geometry.location);
-            }
-        }else{
-            console.log('入ってない');
+}
+// 検索結果の処理
+function callback(results, status){
+    console.log('4');
+    if (status === google.maps.places.PlacesServiceStatus.OK){
+        console.log('5');
+        for (var i=0; i<results.length; i++){
+            console.log(results[i].name);
+            console.log(results[i].geometry.location);
         }
+    }else{
+        console.log('入ってない');
     }
 }
