@@ -99,4 +99,16 @@ function getCurrentPosition(){
 function searchAddress(){
     var query = document.getElementById("id_address").value;
     console.log(query);
+    // プレイス検索
+    var service = new google.maps.places.PlacesService(map);
+    service.textSearch({
+        query: query
+    }, callback);
+    // 検索結果の処理
+    function callback(results, status){
+        for (var i=0; i<results.length; i++){
+            console.log(results.name);
+            console.log(results.geometry.location);
+        }
+    }
 }
