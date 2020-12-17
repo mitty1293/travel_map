@@ -21,6 +21,8 @@ function initMap(){
 
     // マーカーの初期表示
     showInitMarker(init_marker_json, map);
+
+    searchAddress(map);
 }
 
 // マーカーの初期表示用
@@ -96,7 +98,7 @@ function getCurrentPosition(){
 }
 
 // 住所検索用
-function searchAddress(){
+function searchAddress(map){
     var query = document.getElementById("id_address").value;
     console.log(query);
     // プレイス検索
