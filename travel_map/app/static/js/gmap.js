@@ -101,15 +101,20 @@ function searchAddress(){
     console.log(query);
     // プレイス検索
     var service = new google.maps.places.PlacesService(map);
+    console.log('1');
     var request = {
         location: new google.maps.LatLng(35.709984,139.810703),
         radius: '500',
         query: query
     };
+    console.log('2');
     service.textSearch(request, callback);
+    console.log('3');
     // 検索結果の処理
     function callback(results, status){
+        console.log('4');
         if (status === google.maps.places.PlacesServiceStatus.OK){
+            console.log('5');
             for (var i=0; i<results.length; i++){
                 console.log(results[i].name);
                 console.log(results[i].geometry.location);
