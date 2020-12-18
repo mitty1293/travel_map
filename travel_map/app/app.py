@@ -71,7 +71,7 @@ def search_address_submit():
             f.write(f'{result}\n')
     with open('/var/www/html/app/search_address_test2.txt', mode="w") as ff:
         #pickle.dump(search_address_results, ff)
-        ff.write(search_address_results)
+        ff.write(str(search_address_results))
     # ここまで
     return render_template("search_address.html", search_address_submit_data=search_address_submit_data, search_address_results=search_address_results['results'])
 
