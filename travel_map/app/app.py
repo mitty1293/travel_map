@@ -49,8 +49,7 @@ def search_submit():
 @app.route("/search_address", methods=['GET'])
 def search_address():
     search_address_submit_data = {'spot_name':''}
-    search_address_results = {}.json()
-    return render_template("search_address.html", search_address_submit_data=search_address_submit_data, search_address_results=search_address_results)
+    return render_template("search_address.html", search_address_submit_data=search_address_submit_data)
 
 @app.route("/search_address_submit", methods=['POST'])
 def search_address_submit():
@@ -66,6 +65,10 @@ def search_address_submit():
     # debug用
     with open('/var/www/html/app/search_address_test.txt', mode="w", encoding='shift_jis') as f:
         f.write(str(type(search_address_results)))
+        f.write('\n')
+        for result in search_address_results:
+            f.write(str(type(result)))
+            f.write(f'{result}\n')
     # ここまで
     return render_template("search_address.html", search_address_submit_data=search_address_submit_data, search_address_results=search_address_results)
 
