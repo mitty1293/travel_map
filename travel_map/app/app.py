@@ -3,7 +3,7 @@
 
 from flask import Flask, render_template, request, flash, redirect, url_for
 from models import register_db, search_db, delete_db, edit_db
-import random, string
+import random, string, requests
 
 app = Flask(__name__)
 app.secret_key = "".join([random.choice(string.ascii_letters + string.digits + '_' + '-' + '!' + '#' + '&') for i in range(12)])
@@ -50,6 +50,21 @@ def search_submit():
 def search_address():
     search_address_submit_data = {'address':''}
     return render_template("search_address.html", search_address_submit_data=search_address_submit_data)
+
+@app.route("/search_address_submit", methods=['POST'])
+def search_address_submit():
+    search_address_submit_data = request.form
+    url = 'https://maps.googleapis.com/maps/api/place/textsearch/json'
+    q = {
+        'query': search_address_submit_data['address'],
+        'language': 'ja',
+        'key': 'AIzaSyBmW5xeN7EzTWXpzdzwL_EJnJRpYM8sApk'
+    }
+    r = requests.get(url, params=q)
+    json_o = r.json()
+    # ここにsearch_address_resultsとjson_oの関係を書く
+    return render_template("search_address.html", search_address_submit_data=search_address_submit_data, search_address_results=search_address_results)
+
 
 @app.route("/show/<int:id>", methods=['GET'])
 def show(id):
