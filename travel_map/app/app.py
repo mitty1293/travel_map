@@ -69,7 +69,7 @@ def search_address_submit():
         for result in search_address_results:
             f.write(str(type(result)))
             f.write(f'{result}\n')
-    with open('/var/www/html/app/search_address_test2.txt', mode="wb") as ff:
+    with open('/var/www/html/app/search_address_test2.txt', mode="w") as ff:
         #pickle.dump(search_address_results, ff)
         ff.write(search_address_results)
     # ここまで
