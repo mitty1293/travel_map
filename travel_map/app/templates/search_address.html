@@ -4,11 +4,11 @@
 {% endblock %}
 {% block content %}
 <h1>serch</h1>
-<form id="id_search_address_form" action="">
+<form id="id_search_address_form" method="POST" action="/search_address_submit">
     <div class="mb-3">
         <label for="address">場所の名前</label>
-        <input type="text" class="form-control" name="address" id="id_address" value="">
-        <button class="btn btn-primary btn-lg btn-block" type="button" onclick="searchAddress();">検索</button>
+        <input type="text" class="form-control" name="address" id="id_address" value="{{search_address_submit_data.address}}">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">検索</button>
     </div>
 </form>
 <h1>Search results</h1>
