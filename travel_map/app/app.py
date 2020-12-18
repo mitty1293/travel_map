@@ -62,6 +62,10 @@ def search_address_submit():
     }
     r = requests.get(url, params=q)
     search_address_results = r.json()
+    # debug用
+    with open('/var/www/html/app/search_address_test.txt', mode="w", encoding='shift_jis') as f:
+        f.write(str(type(search_address_results)))
+    # ここまで
     return render_template("search_address.html", search_address_submit_data=search_address_submit_data, search_address_results=search_address_results)
 
 
