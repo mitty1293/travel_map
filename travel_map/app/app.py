@@ -3,7 +3,7 @@
 
 from flask import Flask, render_template, request, flash, redirect, url_for
 from models import register_db, search_db, delete_db, edit_db
-import random, string, requests
+import random, string, requests, pickle
 
 app = Flask(__name__)
 app.secret_key = "".join([random.choice(string.ascii_letters + string.digits + '_' + '-' + '!' + '#' + '&') for i in range(12)])
@@ -69,6 +69,7 @@ def search_address_submit():
         for result in search_address_results:
             f.write(str(type(result)))
             f.write(f'{result}\n')
+        pickle.dump(search_address_results, f)
     # ここまで
     return render_template("search_address.html", search_address_submit_data=search_address_submit_data, search_address_results=search_address_results)
 
