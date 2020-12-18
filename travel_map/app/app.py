@@ -48,7 +48,7 @@ def search_submit():
 
 @app.route("/search_address", methods=['GET'])
 def search_address():
-    search_address_submit_data = {'address':''}
+    search_address_submit_data = {'spot_name':''}
     return render_template("search_address.html", search_address_submit_data=search_address_submit_data)
 
 @app.route("/search_address_submit", methods=['POST'])
@@ -56,13 +56,12 @@ def search_address_submit():
     search_address_submit_data = request.form
     url = 'https://maps.googleapis.com/maps/api/place/textsearch/json'
     q = {
-        'query': search_address_submit_data['address'],
+        'query': search_address_submit_data['spot_name'],
         'language': 'ja',
         'key': 'AIzaSyBmW5xeN7EzTWXpzdzwL_EJnJRpYM8sApk'
     }
     r = requests.get(url, params=q)
-    json_o = r.json()
-    # ここにsearch_address_resultsとjson_oの関係を書く
+    search_address_results = r.json()
     return render_template("search_address.html", search_address_submit_data=search_address_submit_data, search_address_results=search_address_results)
 
 

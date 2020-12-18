@@ -6,8 +6,8 @@
 <h1>serch</h1>
 <form id="id_search_address_form" method="POST" action="/search_address_submit">
     <div class="mb-3">
-        <label for="address">場所の名前</label>
-        <input type="text" class="form-control" name="address" id="id_address" value="{{search_address_submit_data.address}}">
+        <label for="spot_name">場所の名前</label>
+        <input type="text" class="form-control" name="spot_name" id="id_spot_name" value="{{search_address_submit_data.spot_name}}">
         <button class="btn btn-primary btn-lg btn-block" type="submit">検索</button>
     </div>
 </form>
@@ -23,9 +23,9 @@
     <tbody>
         {% for row in search_address_results %}
         <tr>
-            <td><a class="btn btn-primary" href="/entry?lat=${lat}&lng=${lat}" role="button">登録</a></td>
-            <td>{{row['spot_name']}}</td>
-            <td>{{row['address']}}</td>
+            <td><a class="btn btn-primary" href="/entry?lat=${row['results'][0]['geometry']['location']['lat']}&lng=${row['results'][0]['geometry']['location']['lng']}" role="button">登録</a></td>
+            <td>{{row['results'][0]['name']}}</td>
+            <td>{{row['results'][0]['formatted_address']}}</td>
         </tr>
         {% else %}
             <td>No entry exist</td>
