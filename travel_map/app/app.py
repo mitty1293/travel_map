@@ -63,7 +63,7 @@ def search_address_submit():
     r = requests.get(url, params=q)
     search_address_results = r.json()
     # debug用
-    with open('/var/www/html/app/search_address_test.txt', mode="w", encoding='shift_jis') as f:
+    with open('/var/www/html/app/search_address_test.txt', mode="wb", encoding='shift_jis') as f:
         f.write(str(type(search_address_results)))
         f.write('\n')
         for result in search_address_results:
