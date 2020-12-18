@@ -73,7 +73,7 @@ def search_address_submit():
         #pickle.dump(search_address_results, ff)
         ff.write(search_address_results)
     # ここまで
-    return render_template("search_address.html", search_address_submit_data=search_address_submit_data, search_address_results=search_address_results)
+    return render_template("search_address.html", search_address_submit_data=search_address_submit_data, search_address_results=search_address_results['results'])
 
 
 @app.route("/show/<int:id>", methods=['GET'])

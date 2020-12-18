@@ -23,9 +23,9 @@
     <tbody>
         {% for row in search_address_results %}
         <tr>
-            <td><a class="btn btn-primary" href="/entry?lat=${row['results'][0]['geometry']['location']['lat']}&lng=${row['results'][0]['geometry']['location']['lng']}" role="button">登録</a></td>
-            <td>{{row['results'][0]['name']}}</td>
-            <td>{{row['results'][0]['formatted_address']}}</td>
+            <td><a class="btn btn-primary" href="/entry?lat=${row[0]['geometry']['location']['lat']}&lng=${row[0]['geometry']['location']['lng']}" role="button">登録</a></td>
+            <td>{{row[0]['name']}}</td>
+            <td>{{row[0]['formatted_address']}}</td>
         </tr>
         {% else %}
             <td>No entry exist</td>
