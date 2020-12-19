@@ -19,16 +19,6 @@ def entry():
     lat = request.args.get('lat', type=float)
     lng = request.args.get('lng', type=float)
     address = request.args.get('address', type=str)
-    # debug用
-    with open('/var/www/html/app/entry_test.txt', mode="w", encoding='shift_jis') as f:
-        f.write(str(type(lat)))
-        f.write(str(type(lng)))
-        f.write(str(type(address)))
-        f.write('\n')
-        f.write(f'{lat}\n')
-        f.write(f'{lng}\n')
-        f.write(f'{address}\n')
-    # ここまで
     return render_template("entry.html", lat=lat, lng=lng, address=address)
 
 @app.route("/entry_submit", methods=['POST'])
@@ -47,14 +37,6 @@ def search():
 def search_submit():
     search_submit_data = request.form
     search_results = search_db.search_db(**search_submit_data)
-    # debug用
-    with open('/var/www/html/app/search_db_test3.txt', mode="w", encoding='shift_jis') as f:
-        f.write(str(type(search_results)))
-        f.write('\n')
-        for result in search_results:
-            f.write(str(type(result)))
-            f.write(f'{result}\n')
-    # ここまで
     return render_template("search.html", search_submit_data=search_submit_data, search_results=search_results)
 
 @app.route("/search_address", methods=['GET'])
