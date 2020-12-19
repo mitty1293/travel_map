@@ -23,7 +23,7 @@
     <tbody>
         {% for row in search_address_results %}
         <tr>
-            <td><a class="btn btn-primary" href="/entry?lat=${row['geometry']['location']['lat']}&lng=${row['geometry']['location']['lng']}" role="button">登録</a></td>
+            <td><a class="btn btn-primary" href="/entry?lat={{row['geometry']['location']['lat']}}&lng={{row['geometry']['location']['lng']}}" role="button">登録</a></td>
             <td>{{row['name']}}</td>
             <td>{{row['formatted_address']}}</td>
         </tr>
