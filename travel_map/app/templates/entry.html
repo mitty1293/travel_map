@@ -31,6 +31,7 @@
             {% for row in init_category_results %}
             <option disabled selected>選択してください</option>
             <option>{{row['category']}}</option>
+            {% endfor %}
         </select>
         <div class="invalid-feedback">
             分類を選択してください。
