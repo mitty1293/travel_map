@@ -16,5 +16,27 @@
 <h1>-----------------</h1>
 {% for row in search_address_results %}
 {{row}}
+<!--
+<table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th>登録</th>
+            <th>場所の名前</th>
+            <th>住所</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in search_address_results %}
+        <tr>
+            <td><a class="btn btn-primary" href="/entry?lat=${row[0]['geometry']['location']['lat']}&lng=${row[0]['geometry']['location']['lng']}" role="button">登録</a></td>
+            <td>{{row[0]['name']}}</td>
+            <td>{{row[0]['formatted_address']}}</td>
+        </tr>
+        {% else %}
+            <td>No entry exist</td>
+        {% endfor %}
+    </tbody>
+</table>
+-->
 {% endfor %}
 {% endblock %}
