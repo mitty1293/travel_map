@@ -12,6 +12,11 @@
     </div>
 </form>
 <h1>Search results</h1>
+{{search_address_results}}
+<h1>-----------------</h1>
+{% for row in search_address_results %}
+{{row}}
+<!--
 <table class="table table-striped table-sm">
     <thead>
         <tr>
@@ -32,4 +37,5 @@
         {% endfor %}
     </tbody>
 </table>
+-->
 {% endblock %}
