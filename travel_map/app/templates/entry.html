@@ -6,10 +6,10 @@
 <h1>entry</h1>
 <form class="needs-validation" novalidate method="POST" action="/entry_submit">
     <div class="mb-3">
-        <input type="hidden" class="form-control" name="lat" value={{lat}} required>
+        <input type="hidden" class="form-control" name="lat" value="{{lat}}" required>
     </div>
     <div class="mb-3">
-        <input type="hidden" class="form-control" name="lng" value={{lng}} required>
+        <input type="hidden" class="form-control" name="lng" value="{{lng}}" required>
     </div>
     <div class="mb-3">
         <label for="date">日付</label>
@@ -46,7 +46,7 @@
     </div>
     <div class="mb-3">
         <label for="address">住所</label>
-        <input type="text" class="form-control" name="address" value={{address}} required>
+        <input type="text" class="form-control" name="address" value="{{address}}" required>
     </div>
     <div class="mb-3">
         <label for="note">備考</label>
