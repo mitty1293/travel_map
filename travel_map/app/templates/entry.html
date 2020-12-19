@@ -28,9 +28,9 @@
     <div class="mb-3">
         <label for="category">分類</label>
         <select class="custom-select d-block w-100" name="category" required>
-            {% for row in init_category_results %}
             <option disabled selected>選択してください</option>
-            <option>{{row['category']}}</option>
+            {% for element in init_category_list %}
+            <option>{{element}}</option>
             {% endfor %}
         </select>
         <div class="invalid-feedback">
