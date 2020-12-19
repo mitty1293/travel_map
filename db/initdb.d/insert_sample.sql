@@ -16,3 +16,4 @@ INSERT INTO travel_map_tbl (lat, lng, date, destination, category, spot_name, ad
 INSERT INTO travel_map_tbl (lat, lng, date, destination, category, spot_name, address, note) VALUES (34.76493517804641, 135.4683040506825, "2020-12-16", "大阪", "レストラン", "地点_大阪レストラン1", "住所_大阪レストラン1", "備考_大阪レストラン1");
 INSERT INTO travel_map_tbl (lat, lng, date, destination, category, spot_name, address, note) VALUES (34.46355994452484, 135.64202663173813, "2002-11-07", "大阪", "施設", "地点_大阪施設1", "住所_大阪施設1", "備考_大阪施設1");
 INSERT INTO travel_map_tbl (lat, lng, date, destination, category, spot_name, address, note) VALUES (34.29773749241069, 135.1139302760881, "2010-05-07", "大阪", "施設", "地点_大阪施設2", "住所_大阪施設2", "備考_大阪施設2");
+INSERT INTO travel_map_tbl (lat, lng, date, destination, category, spot_name, address, note) VALUES (34.29773749241069, 135.1139302760881, "2014-06-25", "カテゴリテスト", "カテゴリテスト", "地点_カテゴリテスト", "住所_カテゴリテスト", "備考_カテゴリテスト");
