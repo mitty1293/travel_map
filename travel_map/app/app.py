@@ -19,7 +19,9 @@ def entry():
     lat = request.args.get('lat', type=float)
     lng = request.args.get('lng', type=float)
     address = request.args.get('address', type=str)
-    return render_template("entry.html", lat=lat, lng=lng, address=address)
+    init_category = {'id':'', 'date_from':'', 'date_to':'', 'destination':'', 'category':''}
+    init_category_results = search_db.search_db(**init_category)
+    return render_template("entry.html", lat=lat, lng=lng, address=address, init_category_results=init_category_results)
 
 @app.route("/entry_submit", methods=['POST'])
 def entry_submit():
