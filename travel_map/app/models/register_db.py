@@ -20,8 +20,8 @@ def register_db(**data):
         f.write(",".join(map(str,list(data.values()))))
     # ここまで
 
-    INSERT_SQL = 'INSERT INTO travel_map_tbl (lat, lng, date, destination, category, spot_name, note) VALUES (%s, %s, %s, %s, %s, %s, %s)'
-    cursor.execute(INSERT_SQL, (data["lat"], data["lng"], data["date"], data["destination"], data["category"], data["spot_name"], data["note"]))
+    INSERT_SQL = 'INSERT INTO travel_map_tbl (lat, lng, date, destination, category, spot_name, address, note) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)'
+    cursor.execute(INSERT_SQL, (data["lat"], data["lng"], data["date"], data["destination"], data["category"], data["spot_name"], data["address"], data["note"]))
 
     cursor.close()
     connect.commit()

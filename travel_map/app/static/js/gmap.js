@@ -60,7 +60,7 @@ function addMarker(lat_lng, address, map){
     });
     // マーカーの位置へ情報ウインドウを表示
     clickinfoWindow = new google.maps.InfoWindow({
-        content: `<p>${address}</p><p><a href="/entry?lat=${lat_lng.lat()}&lng=${lat_lng.lng()}">この場所を登録</a></p>`
+        content: `<p>${address}</p><p><a href="/entry?lat=${lat_lng.lat()}&lng=${lat_lng.lng()}&address=${address}">この場所を登録</a></p>`
     });
     clickinfoWindow.open(map, clickMarker);
     // 座標の中心をマーカーの位置へずらす

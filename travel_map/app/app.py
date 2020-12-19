@@ -18,7 +18,8 @@ def index():
 def entry():
     lat = request.args.get('lat', type=float)
     lng = request.args.get('lng', type=float)
-    return render_template("entry.html", lat=lat, lng=lng)
+    address = request.args.get('address', type=str)
+    return render_template("entry.html", lat=lat, lng=lng, address=address)
 
 @app.route("/entry_submit", methods=['POST'])
 def entry_submit():

@@ -6,6 +6,7 @@ CREATE TABLE `travel_map_db`.`travel_map_tbl`(
     `destination` VARCHAR(40),
     `category` VARCHAR(20),
     `spot_name` VARCHAR(40),
+    `address` VARCHAR(40),
     `note` VARCHAR(40),
     `img_path` VARCHAR(128),
     PRIMARY KEY (`id`)
