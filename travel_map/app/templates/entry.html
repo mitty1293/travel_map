@@ -27,7 +27,7 @@
     </div>
     <div class="mb-3">
         <label for="category">分類</label>
-        <select class="custom-select d-block w-100" name="category" required>
+        <select class="custom-select d-block w-100" name="category" id="categoryselect" required>
             <option disabled selected>選択してください</option>
             {% for element in init_category_list %}
             <option>{{element}}</option>
@@ -35,6 +35,10 @@
         </select>
         <div class="invalid-feedback">
             分類を選択してください。
+        </div>
+        <div>
+            <input type="text" id="added_category">
+            <button onclick="addCategory()">分類を追加する</button>
         </div>
     </div>
     <div class="mb-3">
