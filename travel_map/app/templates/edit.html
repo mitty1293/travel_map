@@ -17,12 +17,17 @@
     </div>
     <div class="mb-3">
         <label for="category">分類</label>
-        <select class="custom-select d-block w-100" name="category">
+        <select class="custom-select d-block w-100" name="category" id="categoryselect">
             <option value="" {% if row['category']=='' %} selected {% endif %} >選択してください</option>
             <option {% if row['category']=='自然' %} selected {% endif %} >自然</option>
-            <option {% if row['category']=='レストラン' %} selected {% endif %} >レストラン</option>
-            <option {% if row['category']=='施設' %} selected {% endif %} >施設</option>
+            {% for element in init_category_list %}
+            <option>{{element}}</option>
+            {% endfor %}
         </select>
+        <div>
+            <input type="text" class="form-control" id="added_category">
+            <button type="button" class="btn btn-primary" onclick="addCategory()">分類を追加する</button>
+        </div>
     </div>
     <div class="mb-3">
         <label for="spot_name">場所の名前</label>
