@@ -3,8 +3,10 @@
 {{ super() }}
 {% endblock %}
 {% block content %}
-<div class="row">
+<div class="py-5 text-center">
     <h1>entry</h1>
+</div>
+<div class="row">
     <form class="needs-validation" novalidate method="POST" action="/entry_submit">
         <div class="mb-3">
             <input type="hidden" class="form-control" name="lat" value="{{lat}}" required>
