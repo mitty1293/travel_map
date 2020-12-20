@@ -76,7 +76,8 @@ def delete():
 def edit(id):
     edit_submit_data = {'id':id, 'date_from':'', 'date_to':'', 'destination':'', 'category':''}
     edit_results = search_db.search_db(**edit_submit_data)
-    return render_template("edit.html", edit_results=edit_results)
+    init_category_list = search_db.search_category()
+    return render_template("edit.html", edit_results=edit_results, init_category_list=init_category_list)
 
 @app.route("/edit_submit", methods=['POST'])
 def edit_submit():

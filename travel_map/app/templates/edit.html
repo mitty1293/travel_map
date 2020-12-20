@@ -18,10 +18,9 @@
     <div class="mb-3">
         <label for="category">分類</label>
         <select class="custom-select d-block w-100" name="category" id="categoryselect">
-            <option value="" {% if row['category']=='' %} selected {% endif %} >選択してください</option>
-            <option {% if row['category']=='自然' %} selected {% endif %} >自然</option>
+            <option disabled {% if row['category']=='' %} selected {% endif %} >選択してください</option>
             {% for element in init_category_list %}
-            <option>{{element}}</option>
+            <option {% if row['category']==element %} selected {% endif %} >{{element}}</option>
             {% endfor %}
         </select>
         <div>
