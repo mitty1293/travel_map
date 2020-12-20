@@ -3,44 +3,46 @@
 {{ super() }}
 {% endblock %}
 {% block content %}
-<h1>edit</h1>
-{% for row in edit_results %}
-<form class="needs-validation" novalidate method="POST" action="/edit_submit">
-    <input type="hidden" name="id" value="{{row['id']}}">
-    <div class="mb-3">
-        <label for="date">日付</label>
-        <input type="date" class="form-control" name="date" value="{{row['date']}}">
-    </div>
-    <div class="mb-3">
-        <label for="destination">旅行先</label>
-        <input type="text" class="form-control" name="destination" value="{{row['destination']}}">
-    </div>
-    <div class="mb-3">
-        <label for="category">分類</label>
-        <select class="custom-select d-block w-100" name="category" id="categoryselect">
-            <option disabled {% if row['category']=='' %} selected {% endif %} >選択してください</option>
-            {% for element in init_category_list %}
-            <option {% if row['category']==element %} selected {% endif %} >{{element}}</option>
-            {% endfor %}
-        </select>
-        <div>
-            <input type="text" class="form-control" id="added_category">
-            <button type="button" class="btn btn-primary" onclick="addCategory()">分類を追加する</button>
+<div class="row">
+    <h1>edit</h1>
+    {% for row in edit_results %}
+    <form class="needs-validation" novalidate method="POST" action="/edit_submit">
+        <input type="hidden" name="id" value="{{row['id']}}">
+        <div class="mb-3">
+            <label for="date">日付</label>
+            <input type="date" class="form-control" name="date" value="{{row['date']}}">
         </div>
-    </div>
-    <div class="mb-3">
-        <label for="spot_name">場所の名前</label>
-        <input type="text" class="form-control" name="spot_name" value="{{row['spot_name']}}">
-    </div>
-    <div class="mb-3">
-        <label for="address">住所</label>
-        <input type="text" class="form-control" name="address" value="{{row['address']}}">
-    </div>
-    <div class="mb-3">
-        <label for="note">備考</label>
-        <input type="text" class="form-control" name="note" value="{{row['note']}}">
-    </div>
-    <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
-</form>
-{% endfor %}
+        <div class="mb-3">
+            <label for="destination">旅行先</label>
+            <input type="text" class="form-control" name="destination" value="{{row['destination']}}">
+        </div>
+        <div class="mb-3">
+            <label for="category">分類</label>
+            <select class="custom-select d-block w-100" name="category" id="categoryselect">
+                <option disabled {% if row['category']=='' %} selected {% endif %} >選択してください</option>
+                {% for element in init_category_list %}
+                <option {% if row['category']==element %} selected {% endif %} >{{element}}</option>
+                {% endfor %}
+            </select>
+            <div>
+                <input type="text" class="form-control" id="added_category">
+                <button type="button" class="btn btn-primary" onclick="addCategory()">分類を追加する</button>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="spot_name">場所の名前</label>
+            <input type="text" class="form-control" name="spot_name" value="{{row['spot_name']}}">
+        </div>
+        <div class="mb-3">
+            <label for="address">住所</label>
+            <input type="text" class="form-control" name="address" value="{{row['address']}}">
+        </div>
+        <div class="mb-3">
+            <label for="note">備考</label>
+            <input type="text" class="form-control" name="note" value="{{row['note']}}">
+        </div>
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
+    </form>
+    {% endfor %}
+</div>
 {% endblock %}
