@@ -32,13 +32,15 @@ def entry_submit():
 @app.route("/search", methods=['GET'])
 def search():
     search_submit_data = {'date_from':'', 'date_to':'', 'destination':'', 'category':''}
-    return render_template("search.html", search_submit_data=search_submit_data)
+    init_category_list = search_db.search_category()
+    return render_template("search.html", search_submit_data=search_submit_data, init_category_list=init_category_list)
 
 @app.route("/search_submit", methods=['POST'])
 def search_submit():
     search_submit_data = request.form
     search_results = search_db.search_db(**search_submit_data)
-    return render_template("search.html", search_submit_data=search_submit_data, search_results=search_results)
+    init_category_list = search_db.search_category()
+    return render_template("search.html", search_submit_data=search_submit_data, search_results=search_results, init_category_list=init_category_list)
 
 @app.route("/search_address", methods=['GET'])
 def search_address():
