@@ -14,16 +14,10 @@
     <div class="mb-3">
         <label for="date">日付</label>
         <input type="date" class="form-control" name="date" required>
-        <div class="invalid-feedback">
-            日付を入力してください。
-        </div>
     </div>
     <div class="mb-3">
         <label for="destination">旅行先</label>
         <input type="text" class="form-control" name="destination" required>
-        <div class="invalid-feedback">
-            旅行先を入力してください。
-        </div>
     </div>
     <div class="mb-3">
         <label for="category">分類</label>
@@ -33,9 +27,6 @@
             <option>{{element}}</option>
             {% endfor %}
         </select>
-        <div class="invalid-feedback">
-            分類を選択してください。
-        </div>
         <div>
             <input type="text" class="form-control" id="added_category">
             <button type="button" class="btn btn-primary" onclick="addCategory()">分類を追加する</button>
@@ -44,9 +35,6 @@
     <div class="mb-3">
         <label for="spot_name">場所の名前</label>
         <input type="text" class="form-control" name="spot_name" required>
-        <div class="invalid-feedback">
-            場所の名前を入力してください。
-        </div>
     </div>
     <div class="mb-3">
         <label for="address">住所</label>
@@ -55,9 +43,6 @@
     <div class="mb-3">
         <label for="note">備考</label>
         <input type="text" class="form-control" name="note" required>
-        <div class="invalid-feedback">
-            備考を入力してください。
-        </div>
     </div>
     <button class="btn btn-primary btn-lg btn-block" type="submit">地点登録する</button>
 </form>
