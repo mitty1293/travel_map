@@ -49,3 +49,20 @@ def search_db(**data):
     connect.commit()
     connect.close()
     return results
+
+def search_category():
+    connect = mysql.connector.connect(host="travel_map_db", port="3306", user="user", password="password", database="travel_map_db")
+    cursor = connect.cursor(dictionary=True)
+
+    SEARCH_SQL = 'SELECT * FROM travel_map_tbl'
+    cursor.execute(SEARCH_SQL)
+    results = cursor.fetchall()
+    connect.commit()
+    connect.close()
+
+    init_category_list = []
+    for row in results:
+        init_category_list.append(row['category'])
+    init_category_list = list(set(init_category_list))
+
+    return init_category_list

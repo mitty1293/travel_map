@@ -20,12 +20,7 @@ def entry():
     lng = request.args.get('lng', type=float)
     address = request.args.get('address', type=str)
     # 登録されているデータからcategoryのリストを重複無しで作成
-    init_category = {'id':'', 'date_from':'', 'date_to':'', 'destination':'', 'category':''}
-    init_category_results = search_db.search_db(**init_category)
-    init_category_list = []
-    for row in init_category_results:
-        init_category_list.append(row['category'])
-    init_category_list = list(set(init_category_list))
+    init_category_list = search_db.search_category()
     return render_template("entry.html", lat=lat, lng=lng, address=address, init_category_list=init_category_list)
 
 @app.route("/entry_submit", methods=['POST'])
