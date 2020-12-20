@@ -51,6 +51,7 @@ def search_db(**data):
     return results
 
 def search_category():
+    # 登録されているデータからcategoryのリストを重複無しで作成し返す
     connect = mysql.connector.connect(host="travel_map_db", port="3306", user="user", password="password", database="travel_map_db")
     cursor = connect.cursor(dictionary=True)
 
