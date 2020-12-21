@@ -3,69 +3,63 @@
 {{ super() }}
 {% endblock %}
 {% block content %}
-<div class="py-5 text-center">
-    <h1>Search</h1>
-</div>
-<div class="row">
-    <form class="needs-validation" novalidate method="POST" action="/search_submit">
-        <input type="hidden" name="id" value="">
-        <div class="form-row">
-            <div class="col mb-3">
-                <label for="date_from">From</label>
-                <input type="date" class="form-control" name="date_from" value={{search_submit_data.date_from}}>
-            </div>
-            <div class="col mb-3">
-                <label for="date_to">To</label>
-                <input type="date" class="form-control" name="date_to" value={{search_submit_data.date_to}}>
-            </div>
+<h1>Search</h1>
+<form class="needs-validation" novalidate method="POST" action="/search_submit">
+    <input type="hidden" name="id" value="">
+    <div class="form-row">
+        <div class="col mb-3">
+            <label for="date_from">From</label>
+            <input type="date" class="form-control" name="date_from" value={{search_submit_data.date_from}}>
         </div>
-        <div class="mb-3">
-            <label for="destination">旅行先</label>
-            <input type="text" class="form-control" name="destination" value={{search_submit_data.destination}}>
+        <div class="col mb-3">
+            <label for="date_to">To</label>
+            <input type="date" class="form-control" name="date_to" value={{search_submit_data.date_to}}>
         </div>
-        <div class="mb-3">
-            <label for="category">分類</label>
-            <select class="custom-select d-block w-100" name="category" id="categoryselect" required>
-                <option value="" {% if search_submit_data.category=='' %} selected {% endif %} >選択してください</option>
-                {% for element in init_category_list %}
-                <option {% if search_submit_data.category==element %} selected {% endif %} >{{element}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        <button class="btn btn-primary btn-lg btn-block" type="submit">検索</button>
-    </form>
-</div>
-<div class="row">
-    <h2>Search results</h2>
-    <table class="table table-striped table-sm">
-        <thead>
-            <tr>
-                <th>詳細</th>
-                <th>ID</th>
-                <th>日付</th>
-                <th>旅行先</th>
-                <th>分類</th>
-                <th>場所の名前</th>
-                <th>住所</th>
-                <th>備考</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for row in search_results %}
-            <tr>
-                <td><a class="btn btn-primary" href="/show/{{row['id']}}" role="button">詳細</a></td>
-                <td>{{row['id']}}</td>
-                <td>{{row['date']}}</td>
-                <td>{{row['destination']}}</td>
-                <td>{{row['category']}}</td>
-                <td>{{row['spot_name']}}</td>
-                <td>{{row['address']}}</td>
-                <td>{{row['note']}}</td>
-            </tr>
-            {% else %}
-                <td>No entry exist</td>
+    </div>
+    <div class="mb-3">
+        <label for="destination">旅行先</label>
+        <input type="text" class="form-control" name="destination" value={{search_submit_data.destination}}>
+    </div>
+    <div class="mb-3">
+        <label for="category">分類</label>
+        <select class="custom-select d-block w-100" name="category" id="categoryselect" required>
+            <option value="" {% if search_submit_data.category=='' %} selected {% endif %} >選択してください</option>
+            {% for element in init_category_list %}
+            <option {% if search_submit_data.category==element %} selected {% endif %} >{{element}}</option>
             {% endfor %}
-        </tbody>
-    </table>
-</div>
+        </select>
+    </div>
+    <button class="btn btn-primary btn-lg btn-block" type="submit">検索</button>
+</form>
+<h2>Search results</h2>
+<table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th>詳細</th>
+            <th>ID</th>
+            <th>日付</th>
+            <th>旅行先</th>
+            <th>分類</th>
+            <th>場所の名前</th>
+            <th>住所</th>
+            <th>備考</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in search_results %}
+        <tr>
+            <td><a class="btn btn-primary" href="/show/{{row['id']}}" role="button">詳細</a></td>
+            <td>{{row['id']}}</td>
+            <td>{{row['date']}}</td>
+            <td>{{row['destination']}}</td>
+            <td>{{row['category']}}</td>
+            <td>{{row['spot_name']}}</td>
+            <td>{{row['address']}}</td>
+            <td>{{row['note']}}</td>
+        </tr>
+        {% else %}
+            <td>No entry exist</td>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
