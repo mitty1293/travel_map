@@ -21,7 +21,7 @@
         <input type="text" class="form-control" name="destination" value={{search_submit_data.destination}}>
     </div>
     <div class="mb-3">
-        <label for="category">分類</label>
+        <label for="category">カテゴリ</label>
         <select class="custom-select d-block w-100" name="category" id="categoryselect" required>
             <option value="" {% if search_submit_data.category=='' %} selected {% endif %} >選択してください</option>
             {% for element in init_category_list %}
@@ -39,7 +39,7 @@
             <th>ID</th>
             <th>日付</th>
             <th>旅行先</th>
-            <th>分類</th>
+            <th>カテゴリ</th>
             <th>場所の名前</th>
             <th>住所</th>
             <th>備考</th>

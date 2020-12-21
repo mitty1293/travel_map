@@ -22,7 +22,7 @@
         </small>
     </div>
     <div class="mb-3">
-        <label for="category">分類</label>
+        <label for="category">カテゴリ</label>
         <select class="custom-select d-block w-100" name="category" id="categoryselect">
             <option disabled {% if row['category']=='' %} selected {% endif %} >選択してください</option>
             {% for element in init_category_list %}
@@ -34,7 +34,7 @@
         </small>
         <div>
             <input type="text" class="form-control" id="added_category">
-            <button type="button" class="btn btn-primary" onclick="addCategory()">分類を追加する</button>
+            <button type="button" class="btn btn-primary" onclick="addCategory()">カテゴリを追加する</button>
             <small class="form-text text-muted">
                 新しいカテゴリを入力して追加できます
             </small>
