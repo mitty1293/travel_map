@@ -7,20 +7,34 @@
     <h1>Show</h1>
 </div>
 {% for row in show_results %}
-<h2>id</h2>
-{{row['id']}}
-<h2>date</h2>
-{{row['date']}}
-<h2>destination</h2>
-{{row['destination']}}
-<h2>category</h2>
-{{row['category']}}
-<h2>spot_name</h2>
-{{row['spot_name']}}
-<h2>address</h2>
-{{row['address']}}
-<h2>note</h2>
-{{row['note']}}
+<div class="mb-3">
+    <h2>id</h2>
+    {{row['id']}}
+</div>
+<div class="mb-3">
+    <h2>date</h2>
+    {{row['date']}}
+</div>
+<div class="mb-3">
+    <h2>destination</h2>
+    {{row['destination']}}
+</div>
+<div class="mb-3">
+    <h2>category</h2>
+    {{row['category']}}
+</div>
+<div class="mb-3">
+    <h2>spot_name</h2>
+    {{row['spot_name']}}
+</div>
+<div class="mb-3">
+    <h2>address</h2>
+    {{row['address']}}
+</div>
+<div class="mb-3">
+    <h2>note</h2>
+    {{row['note']}}
+</div>
 <!-- edit,delete button -->
 <div>
     <a class="btn btn-secondary" href="/edit/{{row['id']}}">Update</a>
