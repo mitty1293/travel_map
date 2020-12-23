@@ -38,15 +38,6 @@ def search():
 @app.route("/search_submit", methods=['POST'])
 def search_submit():
     search_submit_data = request.form
-    #debug
-    with open('/var/www/html/app/test.txt', mode="w", encoding='shift_jis') as f:
-        f.write(str(type(search_submit_data)))
-        f.write('\n')
-        for key,value in search_submit_data.items():
-            f.write(str(type(value)))
-            f.write(f'{key}:{value}\n')
-        f.write(",".join(map(str,list(search_submit_data.values()))))
-    #debug
     search_results = search_db.search_db(**search_submit_data)
     init_category_list = search_db.search_category()
     return render_template("search.html", search_submit_data=search_submit_data, search_results=search_results, init_category_list=init_category_list)
