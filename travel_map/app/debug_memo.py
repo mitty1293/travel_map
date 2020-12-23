@@ -21,3 +21,9 @@ with open('/var/www/html/app/search_db_test3.txt', mode="w", encoding='shift_jis
     for result in search_results:
         f.write(str(type(result)))
         f.write(f'{result}\n')
+
+テーマ
+訪れた日
+訪れた年月日
+スポット名
+スポットの名前
