@@ -4,6 +4,6 @@ function addCategory() {
     var added_category = document.getElementById("added_category").value;
     option.text = added_category;
     option.value = added_category;
+    option.selected = true;
     select.appendChild(option);
-    select.value = added_category;
 }
