@@ -11,14 +11,14 @@
         <label for="date">日付</label>
         <input type="date" class="form-control" name="date" value="{{row['date']}}">
         <small class="form-text text-muted">
-            訪れた年月日を選択してください
+            訪れた日付を選択してください。
         </small>
     </div>
     <div class="mb-3">
-        <label for="destination">旅行先</label>
+        <label for="destination">テーマ</label>
         <input type="text" class="form-control" name="destination" value="{{row['destination']}}">
         <small class="form-text text-muted">
-            旅行先を入力してください
+            テーマを入力してください。東京旅行、ラーメンマップなど、まとめやすい名前をつけましょう。
         </small>
     </div>
     <div class="mb-3">
@@ -30,35 +30,35 @@
             {% endfor %}
         </select>
         <small class="form-text text-muted">
-            訪問先のカテゴリを選択してください
+            カテゴリを選択してください。
         </small>
         <div class="mt-1">
             <input type="text" class="form-control" id="added_category">
             <button type="button" class="btn btn-primary" onclick="addCategory()">カテゴリを追加する</button>
             <small class="form-text text-muted">
-                新しいカテゴリを入力して追加できます
+                新しいカテゴリを入力して追加できます。
             </small>
         </div>
     </div>
     <div class="mb-3">
-        <label for="spot_name">場所の名前</label>
+        <label for="spot_name">スポット名</label>
         <input type="text" class="form-control" name="spot_name" value="{{row['spot_name']}}">
         <small class="form-text text-muted">
-            場所の名前を選択してください
+            登録したいスポットの名前を入力してください。
         </small>
     </div>
     <div class="mb-3">
         <label for="address">住所</label>
         <input type="text" class="form-control" name="address" value="{{row['address']}}">
         <small class="form-text text-muted">
-            住所を入力してください
+            住所を入力してください。
         </small>
     </div>
     <div class="mb-3">
         <label for="note">備考</label>
         <input type="text" class="form-control" name="note" value="{{row['note']}}">
         <small class="form-text text-muted">
-            備考を入力してください
+            備考を入力してください。
         </small>
     </div>
     <button class="btn btn-primary btn-lg btn-block" type="submit">Update</button>
