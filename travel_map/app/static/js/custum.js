@@ -5,4 +5,5 @@ function addCategory() {
     option.text = added_category;
     option.value = added_category;
     select.appendChild(option);
+    alert("カテゴリを追加しました。");
 }
